@@ -28,15 +28,22 @@ import LinkedIn from '@/components/svgs/LinkedIn';
 import Mail from '@/components/svgs/Mail';
 import X from '@/components/svgs/X';
 import Bun from '@/components/technologies/Bun';
+import Docker from '@/components/technologies/Docker';
+import Grafana from '@/components/technologies/Grafana';
 import JavaScript from '@/components/technologies/JavaScript';
+import Jenkins from '@/components/technologies/Jenkins';
+import Kubernetes from '@/components/technologies/Kubernetes';
 import MongoDB from '@/components/technologies/MongoDB';
 import NextJs from '@/components/technologies/NextJs';
 import NodeJs from '@/components/technologies/NodeJs';
 import PostgreSQL from '@/components/technologies/PostgreSQL';
 import Prisma from '@/components/technologies/Prisma';
+import Prometheus from '@/components/technologies/Prometheus';
 import ReactIcon from '@/components/technologies/ReactIcon';
 // Technology Components
 import TypeScript from '@/components/technologies/TypeScript';
+
+// import LangGraph from '@/components/technologies/LangGraph';
 
 // Component mapping for skills
 export const skillComponents = {
@@ -49,11 +56,17 @@ export const skillComponents = {
   MongoDB: MongoDB,
   Prisma: Prisma,
   JavaScript: JavaScript,
+  Docker: Docker,
+  Kubernetes: Kubernetes,
+  Grafana: Grafana,
+  Prometheus: Prometheus,
+  Jenkins: Jenkins,
+  // LangGraph: LangGraph,
 };
 
 export const heroConfig = {
   // Personal Information
-  name: 'Ram',
+  name: 'Viraj',
   title: 'A Full Stack web developer.',
   avatar: '/assets/logo.png',
 
@@ -61,35 +74,60 @@ export const heroConfig = {
   skills: [
     {
       name: 'Typescript',
-      href: 'https://www.typescriptlang.org/',
+      href: '#',
       component: 'TypeScript',
     },
     {
       name: 'React',
-      href: 'https://react.dev/',
+      href: '#',
       component: 'ReactIcon',
     },
     {
       name: 'Next.js',
-      href: 'https://nextjs.org/',
+      href: '#',
       component: 'NextJs',
     },
     {
-      name: 'Bun',
-      href: 'https://bun.sh/',
-      component: 'Bun',
+      name: 'Node.js',
+      href: '#',
+      component: 'NodeJs',
     },
     {
-      name: 'PostgreSQL',
-      href: 'https://www.postgresql.org/',
-      component: 'PostgreSQL',
+      name: 'Docker',
+      href: '#',
+      component: 'Docker',
     },
+    {
+      name: 'Kubernetes',
+      href: '#',
+      component: 'Kubernetes',
+    },
+    {
+      name: 'Jenkins',
+      href: '#',
+      component: 'Jenkins',
+    },
+    {
+      name: 'Prometheus',
+      href: '#',
+      component: 'Prometheus',
+    },
+    {
+      name: 'Grafana',
+      href: '#',
+      component: 'Grafana',
+    },
+    // {
+    //   name: 'LangGraph',
+    //   href: '#',
+    //   component: 'LangGraph',
+    // },
   ],
 
   // Description Configuration
   description: {
     template:
-      'I build interactive web apps using {skills:0}, {skills:1}, {skills:2}, {skills:3} and {skills:4}. With a focus on <b>UI</b> design. Enthusiastic about <b>Three.js</b>, driven by a keen eye for design.',
+      'I build interactive web apps with {skills:0}, {skills:1}, {skills:2}, and {skills:3}. I containerize application with {skills:4}, deploy via {skills:5}, {skills:6} CICD and add observability with {skills:7}, 🪵 Loki, and {skills:8} I also build RAGs and multi-node AI agents using LangGraph.',
   },
 
   // Buttons Configuration

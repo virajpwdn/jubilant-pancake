@@ -1,7 +1,10 @@
 import Appwrite from '@/components/technologies/Appwrite';
+import AWS from '@/components/technologies/AWS';
 import Bun from '@/components/technologies/Bun';
+import Docker from '@/components/technologies/Docker';
 import ExpressJs from '@/components/technologies/ExpressJs';
 import Github from '@/components/technologies/Github';
+import JavaScript from '@/components/technologies/JavaScript';
 import MDXIcon from '@/components/technologies/MDXIcon';
 import MongoDB from '@/components/technologies/MongoDB';
 import Motion from '@/components/technologies/Motion';
@@ -11,6 +14,7 @@ import NodeJs from '@/components/technologies/NodeJs';
 import PostgreSQL from '@/components/technologies/PostgreSQL';
 import Prisma from '@/components/technologies/Prisma';
 import ReactIcon from '@/components/technologies/ReactIcon';
+import RedisIcon from '@/components/technologies/Redis';
 import Sanity from '@/components/technologies/Sanity';
 import Shadcn from '@/components/technologies/Shadcn';
 import SocketIo from '@/components/technologies/SocketIo';
@@ -19,29 +23,35 @@ import ThreeJs from '@/components/technologies/ThreeJs';
 import TypeScript from '@/components/technologies/TypeScript';
 import Vercel from '@/components/technologies/Vercel';
 import { Project } from '@/types/project';
+import { OpenAiLogoIcon } from '@phosphor-icons/react/dist/ssr';
 
 export const projects: Project[] = [
   {
-    title: 'NotesBuddy',
+    title: 'StackWave',
     description:
-      'A comprehensive study platform with notes, flashcards, quizzes, AI chatbot, and interactive learning tools',
-    image: '/project/notesbuddy.png',
+      'A real-time collaborative platform for developers to ask questions, share knowledge, and refactor code with AI assistance.',
+    image: '/project/best/stackwave.png',
     video: 'https://ik.imagekit.io/hokb3mrdr/notesbuddy.mp4?tr=orig',
-    link: 'https://notesbuddy.in',
+    link: 'https://stackwave.virajpatwardhan.in',
     technologies: [
-      { name: 'Next.js', icon: <NextJs key="nextjs" /> },
-      { name: 'TypeScript', icon: <TypeScript key="typescript" /> },
-      { name: 'React', icon: <ReactIcon key="react" /> },
-      { name: 'Vercel', icon: <Vercel key="vercel" /> },
+      { name: 'React', icon: <ReactIcon key="reactjs" /> },
+      { name: 'Node Js', icon: <NodeJs key="nodejs" /> },
+      { name: 'Open AI', icon: <OpenAiLogoIcon key="openai" height={24} width={24} /> },
+      { name: 'Javascript', icon: <JavaScript key="javascript" /> },
+      // { name: 'React', icon: <ReactIcon key="react" /> },
+      { name: 'AWS', icon: <AWS key="aws" /> },
       { name: 'MongoDB', icon: <MongoDB key="mongodb" /> },
       { name: 'Tailwind CSS', icon: <TailwindCss key="tailwindcss" /> },
       { name: 'shadcn/ui', icon: <Shadcn key="shadcn" /> },
       { name: 'MDX', icon: <MDXIcon key="mdx" /> },
+      { name: 'Docker', icon: <Docker key="docker" /> },
+      { name: 'Redis', icon: <RedisIcon key="redis" width={22} height={28} /> },
+      { name: 'Socket IO', icon: <SocketIo key="socketio" /> },
     ],
-    github: 'https://github.com/ramxcodes/notesbuddy',
-    live: 'https://notesbuddy.in',
+    github: 'https://github.com/virajpwdn/stackwave',
+    live: 'https://stackwave.virajpatwardhan.in',
     details: true,
-    projectDetailsPageSlug: '/projects/notesbuddy',
+    projectDetailsPageSlug: '/projects/stackwave',
     isWorking: true,
   },
   {
