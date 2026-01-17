@@ -30,6 +30,8 @@ export function ProjectContent({ frontmatter, content }: ProjectContentProps) {
     status,
     challenges,
     learnings,
+    hldImage,
+    dbImage,
   } = frontmatter;
 
   const statusVariant =
@@ -142,6 +144,38 @@ export function ProjectContent({ frontmatter, content }: ProjectContentProps) {
 
         <Separator />
       </header>
+
+      {/* HLD Image */}
+      {hldImage && (
+        <div>
+          <h3 className="mb-3 text-lg font-semibold">High Level Design</h3>
+          <div className="relative aspect-video overflow-hidden rounded-lg mb-10 border">
+            <Image
+              src={hldImage!}
+              alt={title}
+              fill
+              className="object-cover"
+              priority
+            />
+          </div>
+        </div>
+      )}
+
+      {/* DB Design Image */}
+      {dbImage && (
+        <div>
+          <h3 className="mb-3 text-lg font-semibold">Database Design</h3>
+          <div className="relative aspect-video overflow-hidden rounded-lg mb-10">
+            <Image
+              src={dbImage!}
+              alt={title}
+              fill
+              className="object-fit"
+              priority
+            />
+          </div>
+        </div>
+      )}
 
       {/* Technology Stack */}
       <div className="mb-8">

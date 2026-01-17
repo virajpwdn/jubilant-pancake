@@ -1,10 +1,12 @@
-import Appwrite from '@/components/technologies/Appwrite';
+import Mail from '@/components/svgs/Mail';
 import AWS from '@/components/technologies/AWS';
-import Bun from '@/components/technologies/Bun';
+import CloudflareIcon from '@/components/technologies/Cloudflare';
 import Docker from '@/components/technologies/Docker';
 import ExpressJs from '@/components/technologies/ExpressJs';
 import Github from '@/components/technologies/Github';
+import Grafana from '@/components/technologies/Grafana';
 import JavaScript from '@/components/technologies/JavaScript';
+import Kubernetes from '@/components/technologies/Kubernetes';
 import MDXIcon from '@/components/technologies/MDXIcon';
 import MongoDB from '@/components/technologies/MongoDB';
 import Motion from '@/components/technologies/Motion';
@@ -12,7 +14,10 @@ import Netlify from '@/components/technologies/Netlify';
 import NextJs from '@/components/technologies/NextJs';
 import NodeJs from '@/components/technologies/NodeJs';
 import PostgreSQL from '@/components/technologies/PostgreSQL';
+import Postman from '@/components/technologies/Postman';
 import Prisma from '@/components/technologies/Prisma';
+import Prometheus from '@/components/technologies/Prometheus';
+import RazorpayLogo from '@/components/technologies/RazorPay';
 import ReactIcon from '@/components/technologies/ReactIcon';
 import RedisIcon from '@/components/technologies/Redis';
 import Sanity from '@/components/technologies/Sanity';
@@ -55,44 +60,57 @@ export const projects: Project[] = [
     isWorking: true,
   },
   {
-    title: 'Appwrite MCP Server',
+    title: 'DevTinder',
     description:
-      'Model Context Protocol server for seamless Appwrite database operations with 7 powerful tools and 99.9% success rate',
-    image: '/project/appwrite.png',
+      'A platform where developers connect, collaborate, and build together',
+    image: '/project/best/devtinder.png',
     video: 'https://ik.imagekit.io/hokb3mrdr/appwrite.mp4',
-    link: 'https://mcp.ramx.in/',
+    link: 'https://devtinder.virajpatwardhan.in',
     technologies: [
-      { name: 'TypeScript', icon: <TypeScript key="typescript" /> },
-      { name: 'Bun', icon: <Bun key="bun" /> },
+      { name: 'NodeJS', icon: <NodeJs key="node" /> },
+      { name: 'MongoDB', icon: <MongoDB key="mongodb" /> },
+      { name: 'Express', icon: <ExpressJs key="express" /> },
+      { name: 'AWS', icon: <AWS key="aws" /> },
+      { name: 'React', icon: <ReactIcon key="react" /> },
+      { name: 'Javascript', icon: <JavaScript key="javascript" /> },
+      { name: 'AWS SNS', icon: <Mail key="express" /> },
+      { name: 'Daisy UI', icon: <Shadcn key="daisy" /> },
+      { name: 'Tailwind', icon: <TailwindCss key="tailwind" /> },
+      { name: 'Postman', icon: <Postman key="postman" /> },
       { name: 'Vercel', icon: <Vercel key="vercel" /> },
-      { name: 'Appwrite', icon: <Appwrite key="appwrite" /> },
+      { name: 'SocketIO', icon: <SocketIo key="socket" /> },
+      { name: 'Grafana', icon: <Grafana key="grafana" /> },
+      { name: 'Prometheus', icon: <Prometheus key="promethus" /> },
+      { name: 'Docker', icon: <Docker key="docker" /> },
+      { name: 'Kubernetes', icon: <Kubernetes key="k8s" /> },
+      { name: 'Cloudflare', icon: <CloudflareIcon key="cloudflare" width={24} height={24} /> },
+      { name: 'RazorPay sdk', icon: <RazorpayLogo key="razorpay" /> },
+      // { name: 'Nginx', icon: <Nginx key="express" /> },
     ],
-    github: 'https://github.com/ramxcodes/mcp-server',
-    live: 'https://mcp.ramx.in/',
+    github: 'https://github.com/virajpwdn/devTinder',
+    live: 'https://devtinder.virajpatwardhan.in',
     details: true,
-    projectDetailsPageSlug: '/projects/appwrite-mcp-server',
+    projectDetailsPageSlug: '/projects/devtinder',
     isWorking: true,
   },
   {
-    title: 'Syncify',
+    title: 'TransferX',
     description:
-      'Real-time music streaming platform with synchronized playback, live chat, and social listening features',
-    image: '/project/syncify.png',
+      'A platform to store and manage your data with TransferX – The all-in-one platform offering scalable, secure, and efficient storage for all your needs.',
+    image: '/project/best/transferx.png',
     video: 'https://ik.imagekit.io/hokb3mrdr/syncify.mp4',
-    link: 'https://syncify.rocks',
+    link: 'https://trasnferx.virajpatwardhan.in/',
     technologies: [
+      { name: 'NextJs', icon: <NextJs key="nextjs" /> },
       { name: 'React', icon: <ReactIcon key="react" /> },
-      { name: 'Node.js', icon: <NodeJs key="nodejs" /> },
-      { name: 'MongoDB', icon: <MongoDB key="mongodb" /> },
+      { name: 'Typescript', icon: <TypeScript key="typescript" /> },
       { name: 'Vercel', icon: <Vercel key="vercel" /> },
       { name: 'Tailwind CSS', icon: <TailwindCss key="tailwindcss" /> },
-      { name: 'shadcn/ui', icon: <Shadcn key="shadcn" /> },
-      { name: 'Socket.io', icon: <SocketIo key="socketio" /> },
     ],
-    github: 'https://github.com/ramxcodes/syncify',
-    live: 'https://syncify.rocks',
+    github: 'https://github.com/virajpwdn/TransferX',
+    live: 'https://trasnferx.virajpatwardhan.in/',
     details: true,
-    projectDetailsPageSlug: '/projects/syncify',
+    projectDetailsPageSlug: '/projects/transfer-x',
     isWorking: true,
   },
   {
