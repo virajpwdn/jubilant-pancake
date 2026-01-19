@@ -1,10 +1,13 @@
 import Mail from '@/components/svgs/Mail';
 import AWS from '@/components/technologies/AWS';
+import CSS from '@/components/technologies/CSS';
 import CloudflareIcon from '@/components/technologies/Cloudflare';
 import Docker from '@/components/technologies/Docker';
 import ExpressJs from '@/components/technologies/ExpressJs';
 import Github from '@/components/technologies/Github';
 import Grafana from '@/components/technologies/Grafana';
+import GSAPIcon from '@/components/technologies/GsapIcon';
+import HTMLLogo from '@/components/technologies/HtmlIcon';
 import JavaScript from '@/components/technologies/JavaScript';
 import Kubernetes from '@/components/technologies/Kubernetes';
 import MDXIcon from '@/components/technologies/MDXIcon';
@@ -41,7 +44,10 @@ export const projects: Project[] = [
     technologies: [
       { name: 'React', icon: <ReactIcon key="reactjs" /> },
       { name: 'Node Js', icon: <NodeJs key="nodejs" /> },
-      { name: 'Open AI', icon: <OpenAiLogoIcon key="openai" height={24} width={24} /> },
+      {
+        name: 'Open AI',
+        icon: <OpenAiLogoIcon key="openai" height={24} width={24} />,
+      },
       { name: 'Javascript', icon: <JavaScript key="javascript" /> },
       // { name: 'React', icon: <ReactIcon key="react" /> },
       { name: 'AWS', icon: <AWS key="aws" /> },
@@ -83,7 +89,10 @@ export const projects: Project[] = [
       { name: 'Prometheus', icon: <Prometheus key="promethus" /> },
       { name: 'Docker', icon: <Docker key="docker" /> },
       { name: 'Kubernetes', icon: <Kubernetes key="k8s" /> },
-      { name: 'Cloudflare', icon: <CloudflareIcon key="cloudflare" width={24} height={24} /> },
+      {
+        name: 'Cloudflare',
+        icon: <CloudflareIcon key="cloudflare" width={24} height={24} />,
+      },
       { name: 'RazorPay sdk', icon: <RazorpayLogo key="razorpay" /> },
       // { name: 'Nginx', icon: <Nginx key="express" /> },
     ],
@@ -134,105 +143,99 @@ export const projects: Project[] = [
     isWorking: false, // Currently in development
   },
   {
-    title: 'The Quest',
+    title: 'Apple',
     description:
-      'Personal challenge tracker for completing 500 DSA problems, earning ₹300,000, and improving fitness within 6 months',
-    image: '/project/quest.png',
+      "Apple-style MacBook Pro landing page with buttery-smooth 3D animations and interactive Three.js modeling—pixel-perfect recreation of Apple's showcase experience.",
+    image: '/project/best/apple.png',
     video: 'https://ik.imagekit.io/hokb3mrdr/quest.mp4',
     link: 'https://quest.ramx.in/',
     technologies: [
-      { name: 'Next.js', icon: <NextJs key="nextjs" /> },
+      { name: 'React', icon: <ReactIcon key="react" /> },
       { name: 'TypeScript', icon: <TypeScript key="typescript" /> },
       { name: 'Vercel', icon: <Vercel key="vercel" /> },
       { name: 'Tailwind CSS', icon: <TailwindCss key="tailwindcss" /> },
-      { name: 'MDX', icon: <MDXIcon key="mdx" /> },
-      { name: 'shadcn/ui', icon: <Shadcn key="shadcn" /> },
+      { name: 'Three Js', icon: <ThreeJs key="three" /> },
+      { name: 'GSAP', icon: <GSAPIcon key="gsap" /> },
     ],
     github: 'https://github.com/ramxcodes/the-quest',
     live: 'https://quest.ramx.in/',
     details: true,
-    projectDetailsPageSlug: '/projects/the-quest',
+    projectDetailsPageSlug: '/projects/apple',
     isWorking: true,
   },
   {
-    title: 'FestX',
+    title: 'Zentry Games',
     description:
-      "Comprehensive event management platform for college festivals and hackathons built for NMIMS'24 Hackathon",
-    image: '/project/festx.png',
+      'Gaming website with immersive 3D animations, agent showcases, and performance-optimized experience',
+    image: '/project/best/game.png',
     video: 'https://ik.imagekit.io/hokb3mrdr/fest-x.mp4',
     link: 'https://fest-x.ramx.in/',
     technologies: [
-      { name: 'Next.js', icon: <NextJs key="nextjs" /> },
+      { name: 'React', icon: <ReactIcon key="react" /> },
       { name: 'TypeScript', icon: <TypeScript key="typescript" /> },
-      { name: 'MongoDB', icon: <MongoDB key="mongodb" /> },
       { name: 'Vercel', icon: <Vercel key="vercel" /> },
       { name: 'Tailwind CSS', icon: <TailwindCss key="tailwindcss" /> },
-      { name: 'shadcn/ui', icon: <Shadcn key="shadcn" /> },
+      { name: 'CSS', icon: <CSS key="css" /> },
+      { name: 'GSAP', icon: <GSAPIcon key="gsap" /> },
     ],
-    github: 'https://github.com/ramxcodes/fest-x',
+    github: 'https://github.com/virajpwdn/Zentry',
     live: 'https://fest-x.ramx.in/',
     details: true,
-    projectDetailsPageSlug: '/projects/fest-x',
+    projectDetailsPageSlug: '/projects/zentry',
     isWorking: true,
   },
   {
-    title: "I'm a chill guy",
-    description:
-      'AI-powered GitHub profile roaster with intelligent analysis, witty commentary, and social sharing features',
-    image: '/project/chillguy.png',
-    link: 'https://chillguy.ramx.in',
+    title: 'Base Habitation',
+    description: 'An awwwards winning website, site of the month',
+    image: '/project/best/base.png',
+    link: 'https://basehabitation.virajpatwardhan.in/',
     technologies: [
-      { name: 'React', icon: <ReactIcon key="react" /> },
-      { name: 'Express.js', icon: <ExpressJs key="expressjs" /> },
-      { name: 'Vercel', icon: <Vercel key="vercel" /> },
-      { name: 'Tailwind CSS', icon: <TailwindCss key="tailwindcss" /> },
-      { name: 'Netlify', icon: <Netlify key="netlify" /> },
-      { name: 'GitHub', icon: <Github key="github" /> },
+      { name: 'Javascript', icon: <JavaScript key="js" /> },
+      { name: 'CSS', icon: <CSS key="css" /> },
+      { name: 'HTML', icon: <HTMLLogo key="html" /> },
+      { name: 'Vercel', icon: <Vercel key="netlify" /> },
     ],
-    github: 'https://github.com/ramxcodes/chill-guy',
-    live: 'https://chillguy.ramx.in',
+    // github: 'https://github.com/ramxcodes/chill-guy',
+    live: 'https://basehabitation.virajpatwardhan.in/',
     details: true,
-    projectDetailsPageSlug: '/projects/chill-guy',
+    projectDetailsPageSlug: '/projects/base-habitation',
     isWorking: true,
   },
   {
-    title: "Ram's Space",
+    title: 'SunDown Studios',
     description:
-      'Personal poetry and blog platform featuring emotional stories, poems, and creative writing with dark/light theme support',
-    image: '/project/ramspace.png',
+      'Sundown is a multi-disciplinary studio focused on creating unique, end-to-end experiences and environments',
+    image: '/project/best/sundown.png',
     video: 'https://ik.imagekit.io/hokb3mrdr/ramspace.mp4',
-    link: 'https://blog.ramx.in/',
+    link: 'https://sundownstudio.virajpatwardhan.in/',
     technologies: [
-      { name: 'Next.js', icon: <NextJs key="nextjs" /> },
-      { name: 'TypeScript', icon: <TypeScript key="typescript" /> },
-      { name: 'React', icon: <ReactIcon key="react" /> },
-      { name: 'Tailwind CSS', icon: <TailwindCss key="tailwindcss" /> },
-      { name: 'MDX', icon: <MDXIcon key="mdx" /> },
+      { name: 'Javascript', icon: <JavaScript key="js" /> },
+      { name: 'Vanila CSS', icon: <CSS key="css" /> },
+      { name: 'HTML', icon: <HTMLLogo key="html" /> },
+      { name: 'Vercel', icon: <Vercel key="netlify" /> },
     ],
-    live: 'https://blog.ramx.in/',
+    live: 'https://sundownstudio.virajpatwardhan.in/',
     details: true,
-    projectDetailsPageSlug: '/projects/poems-blog',
+    projectDetailsPageSlug: '/projects/sundown-studio',
     isWorking: true,
   },
   {
-    title: 'Intent JS',
+    title: 'Virtual R',
     description:
-      'Modern JavaScript library website with advanced animations, interactive playground, and comprehensive documentation',
-    image: '/project/intent.png',
+      'Empower your creativity and bring your VR app ideas to life with our intuitive development tools. Get started today and turn your imagination into immersive reality!',
+    image: '/project/best/virtual.png',
     video: 'https://ik.imagekit.io/hokb3mrdr/intent.mp4',
-    link: 'https://intent-js.ramx.in',
+    link: 'https://virtual.virajpatwardhan.in/',
     technologies: [
-      { name: 'Next.js', icon: <NextJs key="nextjs" /> },
-      { name: 'TypeScript', icon: <TypeScript key="typescript" /> },
       { name: 'React', icon: <ReactIcon key="react" /> },
-      { name: 'Motion', icon: <Motion key="motion" /> },
+      { name: 'Javascript', icon: <JavaScript key="javascript" /> },
       { name: 'Tailwind CSS', icon: <TailwindCss key="tailwindcss" /> },
-      { name: 'shadcn/ui', icon: <Shadcn key="shadcn" /> },
+      { name: 'Vercel', icon: <Vercel key="vercel" /> },
     ],
     github: 'https://github.com/ramxcodes/intent-js',
-    live: 'https://intent-js.ramx.in',
+    live: 'https://virtual.virajpatwardhan.in/',
     details: true,
-    projectDetailsPageSlug: '/projects/intent-js',
+    projectDetailsPageSlug: '/projects/virtual-r',
     isWorking: true,
   },
   {

@@ -29,6 +29,7 @@ export interface ProjectCaseStudyFrontmatter {
   isPublished: boolean;
   hldImage?: string,
   dbImage?: string
+  video?: string
 }
 
 export interface ProjectCaseStudy {

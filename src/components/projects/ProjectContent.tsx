@@ -32,6 +32,7 @@ export function ProjectContent({ frontmatter, content }: ProjectContentProps) {
     learnings,
     hldImage,
     dbImage,
+    video,
   } = frontmatter;
 
   const statusVariant =
@@ -46,13 +47,26 @@ export function ProjectContent({ frontmatter, content }: ProjectContentProps) {
       {/* Hero Section */}
       <header className="mb-8 space-y-6">
         <div className="relative aspect-video overflow-hidden rounded-lg">
-          <Image
-            src={image}
-            alt={title}
-            fill
-            className="object-cover"
-            priority
-          />
+          {video ? (
+            <>
+              <video
+                src={video}
+                autoPlay
+                controls
+                className="object-cover"
+              />
+            </>
+          ) : (
+            <>
+              <Image
+                src={image}
+                alt={title}
+                fill
+                className="object-cover"
+                priority
+              />
+            </>
+          )}
         </div>
 
         <div className="space-y-4">
