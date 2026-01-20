@@ -1,0 +1,110 @@
+---
+title: 'Ragify AI'
+description: 'Upload PDFs and get intelligent, accurate answers powered by advanced Al. No more manual searching through pages of documents.'
+image: '/project/best/pdf-chat.png'
+technologies:
+  [
+    'Python',
+    'FastApi',
+    'LangGraph',
+    'VectorDB ',
+    'Neo4j',
+    'LangSmith',
+    'Docker',
+    'MongoDB',
+    'AWS',
+    'LangChain',
+    'LangFuse',
+    'Mem0',
+  ]
+github: 'https://github.com/virajpwdn/GENAI/tree/main/rag'
+timeline: 'Work in progress'
+role: 'Backend'
+team: 'Solo'
+status: 'In Development'
+featured: true
+isPublished: true
+---
+
+## Overview
+
+# Ragify
+
+**Ragify** is a Retrieval-Augmented Generation (RAG) system designed to deliver accurate, context-aware AI responses by grounding large language model (LLM) outputs in user-provided documents.
+
+---
+
+## 🧠 How It Works
+
+### 📥 Indexing Phase
+1. The user uploads a **PDF document**.
+2. The content is **parsed and split into meaningful chunks**.
+3. Each chunk is converted into **vector embeddings**.
+4. These embeddings are stored in a **vector database** for efficient semantic search.
+
+### 🔎 Retrieval Phase
+1. A user query is converted into a **vector embedding**.
+2. The embedding is searched against the **vector database**.
+3. The database returns the **most semantically relevant chunks**.
+4. The retrieved context, along with the user query, is passed to the **LLM**.
+5. The LLM generates a **grounded, accurate response** using the retrieved context.
+
+![Video Thumbnail](/sysdesign/RAG.jpeg)
+
+---
+
+## 🎯 Why Ragify?
+
+By injecting document-specific context at query time, Ragify:
+
+- Reduces LLM hallucinations
+- Improves factual accuracy
+- Grounds responses in user-provided data
+- Enables reliable question-answering over custom documents
+
+---
+
+## ⚙️ Scalability & System Design
+
+At scale, a synchronous indexing pipeline would become a bottleneck. For example, if hundreds of users upload PDFs simultaneously, the system could overwhelm compute resources and fail during the indexing phase.
+
+To address this, i have implemented an **asynchronous, distributed queue-based architecture**:
+
+- PDF processing and indexing jobs are pushed to **background queues**
+- Workers handle chunking, embedding generation, and vector storage asynchronously
+- This decouples user requests from heavy compute tasks
+- Improves system reliability, fault tolerance, and throughput under load
+
+This design ensures the system remains stable and responsive even with **high concurrent document uploads**.
+
+---
+
+## 🌐 Industry Insight
+
+While working on this project, I gained deeper appreciation for the scale at which real-world AI systems operate. During my research, I learned that platforms like **OpenAI rely on thousands of Kubernetes nodes (reportedly ~7,500+)** to handle massive traffic, parallel workloads, and large-scale model inference.
+
+This insight reinforced the importance of:
+- Distributed systems
+- Asynchronous processing
+- Queue-based architectures
+- Horizontal scaling with container orchestration
+
+Designing Ragify with background workers and async queues was a step toward understanding how production-grade AI systems are built to operate reliably at scale.
+
+## 🔮 Future Scope
+
+- Build a **user-friendly web UI** for document upload, indexing status, and query interaction
+- Add progress tracking and retry mechanisms for failed indexing jobs
+- Support additional document formats beyond PDFs
+- Implement multi-tenant isolation and usage limits for large-scale deployments
+
+
+## 🚀 Impact & Learnings
+
+Building Ragify provided hands-on experience with:
+- Retrieval-Augmented Generation (RAG) architectures
+- Chunking strategies and embedding pipelines
+- Vector databases and semantic search
+- Context injection techniques for improving LLM reliability
+
+Ragify demonstrates how combining retrieval with generation leads to more **trustworthy, production-ready AI systems**.

@@ -4,13 +4,18 @@ import CSS from '@/components/technologies/CSS';
 import CloudflareIcon from '@/components/technologies/Cloudflare';
 import Docker from '@/components/technologies/Docker';
 import ExpressJs from '@/components/technologies/ExpressJs';
+import FastAPILogo from '@/components/technologies/FastApi';
 import Github from '@/components/technologies/Github';
 import Grafana from '@/components/technologies/Grafana';
 import GSAPIcon from '@/components/technologies/GsapIcon';
 import HTMLLogo from '@/components/technologies/HtmlIcon';
 import JavaScript from '@/components/technologies/JavaScript';
+import KestraLogo from '@/components/technologies/Kestra';
 import Kubernetes from '@/components/technologies/Kubernetes';
+import LangChain from '@/components/technologies/LangChain';
+import LangGraphIcon from '@/components/technologies/LangGraph';
 import MDXIcon from '@/components/technologies/MDXIcon';
+import Mem0Logo from '@/components/technologies/Mem0';
 import MongoDB from '@/components/technologies/MongoDB';
 import Motion from '@/components/technologies/Motion';
 import Netlify from '@/components/technologies/Netlify';
@@ -20,9 +25,12 @@ import PostgreSQL from '@/components/technologies/PostgreSQL';
 import Postman from '@/components/technologies/Postman';
 import Prisma from '@/components/technologies/Prisma';
 import Prometheus from '@/components/technologies/Prometheus';
+import PythonLogo from '@/components/technologies/Python';
+import QdrantLogo from '@/components/technologies/Qdrant';
 import RazorpayLogo from '@/components/technologies/RazorPay';
 import ReactIcon from '@/components/technologies/ReactIcon';
 import RedisIcon from '@/components/technologies/Redis';
+import SCSSLogo from '@/components/technologies/SCSS';
 import Sanity from '@/components/technologies/Sanity';
 import Shadcn from '@/components/technologies/Shadcn';
 import SocketIo from '@/components/technologies/SocketIo';
@@ -123,23 +131,34 @@ export const projects: Project[] = [
     isWorking: true,
   },
   {
-    title: 'Pasandida Aurat',
-    description:
-      'Innovative dating platform featuring anonymous questions and authentic connections - currently in development',
-    image: '/project/pasandida.png',
+    title: 'NutriGuard AI — Multi-Agentic AI',
+    description: 'AI that reads your food labels and helps you eat smarter.',
+    image: '/project/best/nutri.png',
     video: 'https://ik.imagekit.io/hokb3mrdr/pasandida.mp4',
     link: 'https://www.pasandidaurat.com/',
     technologies: [
       { name: 'Next.js', icon: <NextJs key="nextjs" /> },
       { name: 'TypeScript', icon: <TypeScript key="typescript" /> },
-      { name: 'Prisma', icon: <Prisma key="prisma" /> },
-      { name: 'PostgreSQL', icon: <PostgreSQL key="postgresql" /> },
+      { name: 'MongoDB', icon: <MongoDB key="mongo" /> },
+      { name: 'Node Js', icon: <NodeJs key="nodejs" /> },
+      { name: 'Express', icon: <ExpressJs key="express" /> },
       { name: 'Tailwind CSS', icon: <TailwindCss key="tailwindcss" /> },
       { name: 'Socket.io', icon: <SocketIo key="socketio" /> },
+      { name: 'Postman', icon: <Postman key="postman" /> },
+      {
+        name: 'LangGraph & LangChain',
+        icon: <LangGraphIcon key="langgraph" />,
+      },
+      { name: 'Kestra', icon: <KestraLogo key="kestra" /> },
+      { name: 'Docker', icon: <Docker key="docker" /> },
+      { name: 'AWS', icon: <AWS key="aws" /> },
+      // { name: 'LangChain', icon: <LangChain key="langchain" /> },
+      { name: 'Kubernetes', icon: <Kubernetes key="kubernetes" /> },
+      { name: 'Mem0', icon: <Mem0Logo key="memory" /> },
     ],
-    live: 'https://www.pasandidaurat.com/',
+    // live: 'https://www.pasandidaurat.com/',
     details: true,
-    projectDetailsPageSlug: '/projects/pasandida-aurat',
+    projectDetailsPageSlug: '/projects/nutri-guard-ai',
     isWorking: false, // Currently in development
   },
   {
@@ -239,62 +258,111 @@ export const projects: Project[] = [
     isWorking: true,
   },
   {
-    title: 'Moonstone 2K25',
+    title: 'Flutter',
     description:
-      "Official website for Medicaps University's premier annual college festival with event management and registration",
-    image: '/project/moonstone.png',
+      'Flutter compiles down to native machine code for fast apps and beautiful animations.',
+    image: '/project/best/flutter.png',
     video: 'https://ik.imagekit.io/hokb3mrdr/moonstone.mp4',
-    link: 'https://moonstone.ramx.in/',
+    link: 'https://expo.virajpatwardhan.in',
     technologies: [
-      { name: 'Next.js', icon: <NextJs key="nextjs" /> },
-      { name: 'TypeScript', icon: <TypeScript key="typescript" /> },
-      { name: 'React', icon: <ReactIcon key="react" /> },
-      { name: 'Tailwind CSS', icon: <TailwindCss key="tailwindcss" /> },
-      { name: 'Motion', icon: <Motion key="motion" /> },
-      { name: 'Three.js', icon: <ThreeJs key="threejs" /> },
-      { name: 'shadcn/ui', icon: <Shadcn key="shadcn" /> },
+      { name: 'Scss', icon: <SCSSLogo key="scss" /> },
+      { name: 'HTML', icon: <HTMLLogo key="html" /> },
+      { name: 'CSS', icon: <CSS key="css" /> },
+      { name: 'Javascript', icon: <JavaScript key="javascript" /> },
+      { name: 'Vecel', icon: <Vercel key="vercel" /> },
     ],
-    github: 'https://github.com/ramxcodes/moonstone-fest',
-    live: 'https://moonstone.ramx.in/',
+    // github: 'https://expo.virajpatwardhan.in',
+    live: 'https://expo.virajpatwardhan.in',
     details: true,
-    projectDetailsPageSlug: '/projects/moonstone-fest',
+    projectDetailsPageSlug: '/projects/expo',
     isWorking: true,
   },
   {
-    title: 'Valorant Remastered',
+    title: 'CodeForge AI',
     description:
-      'Gaming website with immersive 3D animations, agent showcases, and performance-optimized Valorant experience',
-    image: '/project/valorant.png',
-    video: 'https://ik.imagekit.io/hokb3mrdr/valorant.mp4',
-    link: 'https://valorant.ramx.in',
+      'Transform your ideas into beautiful web applications instantly. Generate Code, deploy automatically and push directly to github all with single prompt',
+    image: '/project/best/cursor-app.png',
+    video: 'https://ik.imagekit.io/hokb3mrdr/pasandida.mp4',
+    link: '#',
+    github: 'https://github.com/virajpwdn/GENAI',
     technologies: [
-      { name: 'TypeScript', icon: <TypeScript key="typescript" /> },
-      { name: 'React', icon: <ReactIcon key="react" /> },
+      { name: 'Python', icon: <PythonLogo key="pythonlogo" /> },
+      {
+        name: 'LangGraph & LangChain',
+        icon: <LangGraphIcon key="langgraph" />,
+      },
+      { name: 'Mem0', icon: <Mem0Logo key="memory" /> },
+      { name: 'FastApi', icon: <FastAPILogo key="fastapi" /> },
+      { name: 'MongoDB', icon: <MongoDB key="mongo" /> },
+      { name: 'Socket.io', icon: <SocketIo key="socketio" /> },
+      { name: 'Postman', icon: <Postman key="postman" /> },
+      { name: 'AWS', icon: <AWS key="aws" /> },
+      { name: 'Docker', icon: <Docker key="docker" /> },
+      // { name: 'Kubernetes', icon: <Kubernetes key="kubernetes" /> },
     ],
-    github: 'https://github.com/ramxcodes/valorant-remastered',
-    live: 'https://valorant.ramx.in',
+    // live: 'https://www.pasandidaurat.com/',
     details: true,
-    projectDetailsPageSlug: '/projects/valorant-remastered',
-    isWorking: true,
+    projectDetailsPageSlug: '/projects/code-forge',
+    isWorking: false, // Currently in development
   },
   {
-    title: 'That Startup',
+    title: 'Ragify',
     description:
-      'Startup listing and pitching platform where entrepreneurs can submit ideas, vote on concepts, and connect with founders',
-    image: '/project/that-startup.png',
-    video: 'https://ik.imagekit.io/hokb3mrdr/that-startup.mp4',
-    link: 'https://that-startup.ramx.in/',
+      'Upload PDFs and get intelligent, accurate answers powered by advanced Al. No more manual searching through pages of documents.',
+    image: '/project/best/pdf-chat.png',
+    video: 'https://ik.imagekit.io/hokb3mrdr/pasandida.mp4',
+    link: '#',
+    github: 'https://github.com/virajpwdn/GENAI/tree/main/rag',
     technologies: [
-      { name: 'Next.js', icon: <NextJs key="nextjs" /> },
-      { name: 'TypeScript', icon: <TypeScript key="typescript" /> },
-      { name: 'Tailwind CSS', icon: <TailwindCss key="tailwindcss" /> },
-      { name: 'Sanity', icon: <Sanity key="sanity" /> },
-      { name: 'Vercel', icon: <Vercel key="vercel" /> },
+      { name: 'Python', icon: <PythonLogo key="python" /> },
+      {
+        name: 'LangChain',
+        icon: <LangGraphIcon key="langgraph" />,
+      },
+      { name: 'Qdrant DB', icon: <QdrantLogo key="qdant" /> },
+      { name: 'Mem0', icon: <Mem0Logo key="memory" /> },
+      { name: 'OpenAI', icon: <OpenAiLogoIcon key="openai" /> },
+      { name: 'FastAPI', icon: <FastAPILogo key="mongo" /> },
+      { name: 'Socket.io', icon: <SocketIo key="socketio" /> },
+      { name: 'Postman', icon: <Postman key="postman" /> },
+      // { name: 'AWS', icon: <AWS key="aws" /> },
+      { name: 'Docker', icon: <Docker key="docker" /> },
+      // { name: 'Kubernetes', icon: <Kubernetes key="kubernetes" /> },
     ],
-    github: 'https://github.com/ramxcodes/that-startup',
-    live: 'https://that-startup.ramx.in/',
+    // live: 'https://www.pasandidaurat.com/',
     details: true,
-    projectDetailsPageSlug: '/projects/that-startup',
-    isWorking: true,
+    projectDetailsPageSlug: '/projects/rag',
+    isWorking: false, // Currently in development
+  },
+  {
+    title: 'PersonaAI',
+    description:
+      'PersonaAI is an AI-driven platform that allows users to interact with the personas of highly successful individuals to seek guidance, insights, and advice on their goals and plans.',
+    image: '/project/best/persona.png',
+    video: 'https://ik.imagekit.io/hokb3mrdr/pasandida.mp4',
+    link: '#',
+    github: 'https://github.com/virajpwdn/PersonaAI',
+    technologies: [
+      { name: 'Python', icon: <PythonLogo key="python" /> },
+      { name: 'NextJs', icon: <NextJs key="nextjs" /> },
+      { name: 'Postgres', icon: <PostgreSQL key="postgres" /> },
+      {
+        name: 'LangGraph & LangChain',
+        icon: <LangGraphIcon key="langgraph" />,
+      },
+      { name: 'Qdrant DB', icon: <QdrantLogo key="qdant" /> },
+      { name: 'Mem0', icon: <Mem0Logo key="memory" /> },
+      { name: 'OpenAI', icon: <OpenAiLogoIcon key="openai" /> },
+      { name: 'FastAPI', icon: <FastAPILogo key="mongo" /> },
+      { name: 'Socket.io', icon: <SocketIo key="socketio" /> },
+      { name: 'Postman', icon: <Postman key="postman" /> },
+      { name: 'AWS', icon: <AWS key="aws" /> },
+      { name: 'Docker', icon: <Docker key="docker" /> },
+      { name: 'Kubernetes', icon: <Kubernetes key="kubernetes" /> },
+    ],
+    // live: 'https://www.pasandidaurat.com/',
+    details: true,
+    projectDetailsPageSlug: '/projects/persona',
+    isWorking: false, // Currently in development
   },
 ];

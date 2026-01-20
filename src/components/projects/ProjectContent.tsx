@@ -51,7 +51,8 @@ export function ProjectContent({ frontmatter, content }: ProjectContentProps) {
             <>
               <video
                 src={video}
-                autoPlay
+                // autoPlay
+                poster={image}
                 controls
                 className="object-cover"
               />
