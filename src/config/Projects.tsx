@@ -282,7 +282,7 @@ export const projects: Project[] = [
     description:
       'Transform your ideas into beautiful web applications instantly. Generate Code, deploy automatically and push directly to github all with single prompt',
     image: '/project/best/cursor-app.png',
-    video: 'https://ik.imagekit.io/hokb3mrdr/pasandida.mp4',
+    video: '/video/cursor-app.mp4',
     link: '#',
     github: 'https://github.com/virajpwdn/GENAI',
     technologies: [
@@ -303,7 +303,7 @@ export const projects: Project[] = [
     // live: 'https://www.pasandidaurat.com/',
     details: true,
     projectDetailsPageSlug: '/projects/code-forge',
-    isWorking: false, // Currently in development
+    isWorking: true, // Currently in development
   },
   {
     title: 'Ragify',
@@ -321,7 +321,10 @@ export const projects: Project[] = [
       },
       { name: 'Qdrant DB', icon: <QdrantLogo key="qdant" /> },
       { name: 'Mem0', icon: <Mem0Logo key="memory" /> },
-      { name: 'OpenAI', icon: <OpenAiLogoIcon key="openai" /> },
+      {
+        name: 'OpenAI',
+        icon: <OpenAiLogoIcon key="openai" width={22} height={24} />,
+      },
       { name: 'FastAPI', icon: <FastAPILogo key="mongo" /> },
       { name: 'Socket.io', icon: <SocketIo key="socketio" /> },
       { name: 'Postman', icon: <Postman key="postman" /> },
@@ -344,7 +347,6 @@ export const projects: Project[] = [
     github: 'https://github.com/virajpwdn/PersonaAI',
     technologies: [
       { name: 'Python', icon: <PythonLogo key="python" /> },
-      { name: 'NextJs', icon: <NextJs key="nextjs" /> },
       { name: 'Postgres', icon: <PostgreSQL key="postgres" /> },
       {
         name: 'LangGraph & LangChain',
@@ -352,10 +354,15 @@ export const projects: Project[] = [
       },
       { name: 'Qdrant DB', icon: <QdrantLogo key="qdant" /> },
       { name: 'Mem0', icon: <Mem0Logo key="memory" /> },
-      { name: 'OpenAI', icon: <OpenAiLogoIcon key="openai" /> },
+      { name: 'NextJs', icon: <NextJs key="nextjs" /> },
+      {
+        name: 'OpenAI',
+        icon: <OpenAiLogoIcon key="openai" width={22} height={24} />,
+      },
       { name: 'FastAPI', icon: <FastAPILogo key="mongo" /> },
       { name: 'Socket.io', icon: <SocketIo key="socketio" /> },
       { name: 'Postman', icon: <Postman key="postman" /> },
+      { name: 'MDX', icon: <MDXIcon key="postman" /> },
       { name: 'AWS', icon: <AWS key="aws" /> },
       { name: 'Docker', icon: <Docker key="docker" /> },
       { name: 'Kubernetes', icon: <Kubernetes key="kubernetes" /> },
@@ -364,5 +371,33 @@ export const projects: Project[] = [
     details: true,
     projectDetailsPageSlug: '/projects/persona',
     isWorking: false, // Currently in development
+  },
+  {
+    title: 'Instagram - Backend',
+    description:
+      'PersonaAI is an AI-driven platform that allows users to interact with the personas of highly successful individuals to seek guidance, insights, and advice on their goals and plans.',
+    image: '/project/best/instagram.png',
+    // video: 'https://ik.imagekit.io/hokb3mrdr/pasandida.mp4',
+    link: '#',
+    github: 'https://github.com/virajpwdn/Instagram/tree/main/Backend',
+    technologies: [
+      { name: 'Node Js', icon: <NodeJs key="nodejs" /> },
+      {
+        name: 'Open AI',
+        icon: <OpenAiLogoIcon key="openai" height={24} width={24} />,
+      },
+      { name: 'Javascript', icon: <JavaScript key="javascript" /> },
+      { name: 'AWS', icon: <AWS key="aws" /> },
+      { name: 'MongoDB', icon: <MongoDB key="mongodb" /> },
+      { name: 'Tailwind CSS', icon: <TailwindCss key="tailwindcss" /> },
+      { name: 'React', icon: <ReactIcon key="reactjs" /> },
+      { name: 'Docker', icon: <Docker key="docker" /> },
+      { name: 'Redis', icon: <RedisIcon key="redis" width={22} height={28} /> },
+      { name: 'Socket IO', icon: <SocketIo key="socketio" /> },
+    ],
+    // live: 'https://www.pasandidaurat.com/',
+    details: true,
+    projectDetailsPageSlug: '/projects/instagram',
+    isWorking: true, // Currently in development
   },
 ];

@@ -160,6 +160,12 @@ export const experiences: Experience[] = [
         href: '#',
         icon: <CloudflareIcon />,
       },
+      {
+        name: 'Redis',
+        // href: 'https://www.docker.com/',
+        href: '#',
+        icon: <RedisIcon />,
+      },
     ],
     // website: '#',
     // github: '#',

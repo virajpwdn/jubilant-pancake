@@ -56,6 +56,7 @@ export function ProjectCard({ project }: ProjectCardProps) {
                     className="h-full w-full rounded-lg object-cover"
                     src={project.video}
                     autoPlay
+                    muted
                     loop
                     controls
                   />
