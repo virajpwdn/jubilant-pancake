@@ -5,7 +5,6 @@ import Grafana from '@/components/technologies/Grafana';
 import JavaScript from '@/components/technologies/JavaScript';
 import JenkinsLogo from '@/components/technologies/Jenkins';
 import Kubernetes from '@/components/technologies/Kubernetes';
-import LangChain from '@/components/technologies/LangChain';
 import LangGraphIcon from '@/components/technologies/LangGraph';
 import Mem0Logo from '@/components/technologies/Mem0';
 import MongoDB from '@/components/technologies/MongoDB';
@@ -44,7 +43,7 @@ export const mySkills = [
 ];
 
 export const about = {
-  name: 'Viraj',
+  name: 'Viraj Patwardhan',
   description: `I’m a Full-Stack Developer and Open Source Contributor who builds production-ready MVPs that solve real-world problems.
 
   I work across Frontend, Backend, DevOps, and GenAI, taking products from idea → MVP → scalable deployment. I enjoy designing systems, shipping fast, and iterating based on real user feedback.`,
