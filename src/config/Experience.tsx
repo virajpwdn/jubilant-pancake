@@ -56,7 +56,7 @@ export const experiences: Experience[] = [
     company: 'Lucres AI',
     position: 'Full-Stack Developer',
     location: 'Banglore (Remote)',
-    image: '/company/promote.png',
+    image: '/company/lucres.png',
     description: [
       'Drove end-to-end development of a multi-tenant SaaS, enabling fully branded tenant career pages.',
       'Strengthened platform reliability by building SSO and global OTP flows in Next.js, and resolving a critical production outage impacting ~80% of APIs.',
@@ -176,7 +176,7 @@ export const experiences: Experience[] = [
     company: 'Quetraware Technologies',
     position: 'Co-founder, Full-Stack Developer',
     location: 'Navi-Mumbai, India (Remote)',
-    image: '/company/upsurge.png',
+    image: '/company/qt.jpeg',
     description: [
       'Built responsive, user-friendly features by translating Figma designs into production-ready UI, ensuring accessibility, performance, and cross-device compatibility.',
       'Collaborated closely with designers and product stakeholders to deliver high-quality, visually consistent interfaces aligned with design systems and user expectations.',
@@ -261,7 +261,7 @@ export const experiences: Experience[] = [
     company: 'Orlando',
     position: 'Web Developer',
     location: 'Freelance',
-    image: '/company/prepeasy.png',
+    image: '/company/orlando.png',
     description: [
       'Delivered 5 client websites end-to-end using WordPress, WooCommerce, and Elementor, handling development, deployment, SEO optimization, and performance tuning, resulting in ~40% improvement in search rankings.',
       'Managed domains, hosting (Hostinger), DNS configuration, and SSL certificates to ensure secure, reliable production environments.',

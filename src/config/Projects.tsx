@@ -47,7 +47,7 @@ export const projects: Project[] = [
     description:
       'A real-time collaborative platform for developers to ask questions, share knowledge, and refactor code with AI assistance.',
     image: '/project/best/stackwave.png',
-    video: 'https://ik.imagekit.io/hokb3mrdr/notesbuddy.mp4?tr=orig',
+    video: '/video/stackwave.mp4',
     link: 'https://stackwave.virajpatwardhan.in',
     technologies: [
       { name: 'React', icon: <ReactIcon key="reactjs" /> },
@@ -78,7 +78,7 @@ export const projects: Project[] = [
     description:
       'A platform where developers connect, collaborate, and build together',
     image: '/project/best/devtinder.png',
-    video: 'https://ik.imagekit.io/hokb3mrdr/appwrite.mp4',
+    video: '/video/devtinder-app.mp4',
     link: 'https://devtinder.virajpatwardhan.in',
     technologies: [
       { name: 'NodeJS', icon: <NodeJs key="node" /> },
@@ -115,7 +115,7 @@ export const projects: Project[] = [
     description: 'AI that reads your food labels and helps you eat smarter.',
     image: '/project/best/nutri.png',
     video: '/video/ng.mp4',
-    link: 'https://www.pasandidaurat.com/',
+    link: '#',
     technologies: [
       { name: 'Next.js', icon: <NextJs key="nextjs" /> },
       { name: 'TypeScript', icon: <TypeScript key="typescript" /> },
@@ -146,7 +146,7 @@ export const projects: Project[] = [
     description:
       'PersonaAI is an AI-driven platform that allows users to interact with the personas of highly successful individuals to seek guidance, insights, and advice on their goals and plans.',
     image: '/project/best/persona.png',
-    video: 'https://ik.imagekit.io/hokb3mrdr/pasandida.mp4',
+    video: '/video/persona-app.mp4',
     link: '#',
     github: 'https://github.com/virajpwdn/PersonaAI',
     technologies: [
@@ -209,7 +209,7 @@ export const projects: Project[] = [
     description:
       'Upload PDFs and get intelligent, accurate answers powered by advanced Al. No more manual searching through pages of documents.',
     image: '/project/best/pdf-chat.png',
-    video: 'https://ik.imagekit.io/hokb3mrdr/pasandida.mp4',
+    video: '/video/pdfchat-app.mp4',
     link: '#',
     github: 'https://github.com/virajpwdn/GENAI/tree/main/rag',
     technologies: [
@@ -239,7 +239,7 @@ export const projects: Project[] = [
   {
     title: 'Instagram - Backend',
     description:
-      'PersonaAI is an AI-driven platform that allows users to interact with the personas of highly successful individuals to seek guidance, insights, and advice on their goals and plans.',
+      'A backend-focused project built to understand how modern social platforms are designed, scaled, and extended with real-time and AI-powered features.',
     image: '/project/best/instagram.png',
     // video: 'https://ik.imagekit.io/hokb3mrdr/pasandida.mp4',
     link: '#',
@@ -269,8 +269,8 @@ export const projects: Project[] = [
     description:
       "Apple-style MacBook Pro landing page with buttery-smooth 3D animations and interactive Three.js modeling—pixel-perfect recreation of Apple's showcase experience.",
     image: '/project/best/apple.png',
-    video: 'https://ik.imagekit.io/hokb3mrdr/quest.mp4',
-    link: 'https://quest.ramx.in/',
+    video: '/video/apple-app.mp4',
+    link: 'https://apple.virajpatwardhan.in/',
     technologies: [
       { name: 'React', icon: <ReactIcon key="react" /> },
       { name: 'TypeScript', icon: <TypeScript key="typescript" /> },
@@ -279,8 +279,8 @@ export const projects: Project[] = [
       { name: 'Three Js', icon: <ThreeJs key="three" /> },
       { name: 'GSAP', icon: <GSAPIcon key="gsap" /> },
     ],
-    github: 'https://github.com/ramxcodes/the-quest',
-    live: 'https://quest.ramx.in/',
+    github: 'https://github.com/virajpwdn/apple',
+    live: 'https://apple.virajpatwardhan.in/',
     details: true,
     projectDetailsPageSlug: '/projects/apple',
     isWorking: true,
@@ -290,8 +290,8 @@ export const projects: Project[] = [
     description:
       'Gaming website with immersive 3D animations, agent showcases, and performance-optimized experience',
     image: '/project/best/game.png',
-    video: 'https://ik.imagekit.io/hokb3mrdr/fest-x.mp4',
-    link: 'https://fest-x.ramx.in/',
+    video: '/video/zentry-app.mp4',
+    link: 'https://zentry.virajpatwardhan.in/',
     technologies: [
       { name: 'React', icon: <ReactIcon key="react" /> },
       { name: 'TypeScript', icon: <TypeScript key="typescript" /> },
@@ -301,7 +301,7 @@ export const projects: Project[] = [
       { name: 'GSAP', icon: <GSAPIcon key="gsap" /> },
     ],
     github: 'https://github.com/virajpwdn/Zentry',
-    live: 'https://fest-x.ramx.in/',
+    live: 'https://zentry.virajpatwardhan.in/',
     details: true,
     projectDetailsPageSlug: '/projects/zentry',
     isWorking: true,
@@ -311,7 +311,7 @@ export const projects: Project[] = [
     description:
       'A platform to store and manage your data with TransferX – The all-in-one platform offering scalable, secure, and efficient storage for all your needs.',
     image: '/project/best/transferx.png',
-    video: 'https://ik.imagekit.io/hokb3mrdr/syncify.mp4',
+    video: '/video/transferx.mp4',
     link: 'https://trasnferx.virajpatwardhan.in/',
     technologies: [
       { name: 'NextJs', icon: <NextJs key="nextjs" /> },
@@ -331,7 +331,7 @@ export const projects: Project[] = [
     description:
       'Empower your creativity and bring your VR app ideas to life with our intuitive development tools. Get started today and turn your imagination into immersive reality!',
     image: '/project/best/virtual.png',
-    video: 'https://ik.imagekit.io/hokb3mrdr/intent.mp4',
+    video: '/video/virtual.mp4',
     link: 'https://virtual.virajpatwardhan.in/',
     technologies: [
       { name: 'React', icon: <ReactIcon key="react" /> },
@@ -349,6 +349,7 @@ export const projects: Project[] = [
     title: 'Base Habitation',
     description: 'An awwwards winning website, site of the month',
     image: '/project/best/base.png',
+    video: '/video/basehabitation.mp4',
     link: 'https://basehabitation.virajpatwardhan.in/',
     technologies: [
       { name: 'Javascript', icon: <JavaScript key="js" /> },
@@ -367,7 +368,7 @@ export const projects: Project[] = [
     description:
       'Flutter compiles down to native machine code for fast apps and beautiful animations.',
     image: '/project/best/flutter.png',
-    video: 'https://ik.imagekit.io/hokb3mrdr/moonstone.mp4',
+    video: '/video/expo.mp4',
     link: 'https://expo.virajpatwardhan.in',
     technologies: [
       { name: 'Scss', icon: <SCSSLogo key="scss" /> },
@@ -387,7 +388,7 @@ export const projects: Project[] = [
     description:
       'Sundown is a multi-disciplinary studio focused on creating unique, end-to-end experiences and environments',
     image: '/project/best/sundown.png',
-    video: 'https://ik.imagekit.io/hokb3mrdr/ramspace.mp4',
+    video: '/video/sundown.mp4',
     link: 'https://sundownstudio.virajpatwardhan.in/',
     technologies: [
       { name: 'Javascript', icon: <JavaScript key="js" /> },
