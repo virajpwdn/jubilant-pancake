@@ -186,6 +186,7 @@ export async function POST(request: NextRequest) {
     });
 
     if (!response.ok) {
+      // console.log("response", response)
       throw new Error(`Gemini API error: ${response.status}`);
     }
 

@@ -12,18 +12,14 @@ import HTMLLogo from '@/components/technologies/HtmlIcon';
 import JavaScript from '@/components/technologies/JavaScript';
 import KestraLogo from '@/components/technologies/Kestra';
 import Kubernetes from '@/components/technologies/Kubernetes';
-import LangChain from '@/components/technologies/LangChain';
 import LangGraphIcon from '@/components/technologies/LangGraph';
 import MDXIcon from '@/components/technologies/MDXIcon';
 import Mem0Logo from '@/components/technologies/Mem0';
 import MongoDB from '@/components/technologies/MongoDB';
-import Motion from '@/components/technologies/Motion';
-import Netlify from '@/components/technologies/Netlify';
 import NextJs from '@/components/technologies/NextJs';
 import NodeJs from '@/components/technologies/NodeJs';
 import PostgreSQL from '@/components/technologies/PostgreSQL';
 import Postman from '@/components/technologies/Postman';
-import Prisma from '@/components/technologies/Prisma';
 import Prometheus from '@/components/technologies/Prometheus';
 import PythonLogo from '@/components/technologies/Python';
 import QdrantLogo from '@/components/technologies/Qdrant';
@@ -31,7 +27,6 @@ import RazorpayLogo from '@/components/technologies/RazorPay';
 import ReactIcon from '@/components/technologies/ReactIcon';
 import RedisIcon from '@/components/technologies/Redis';
 import SCSSLogo from '@/components/technologies/SCSS';
-import Sanity from '@/components/technologies/Sanity';
 import Shadcn from '@/components/technologies/Shadcn';
 import SocketIo from '@/components/technologies/SocketIo';
 import TailwindCss from '@/components/technologies/TailwindCss';
@@ -61,6 +56,8 @@ export const projects: Project[] = [
       { name: 'AWS', icon: <AWS key="aws" /> },
       { name: 'MongoDB', icon: <MongoDB key="mongodb" /> },
       { name: 'Tailwind CSS', icon: <TailwindCss key="tailwindcss" /> },
+            { name: 'Github', icon: <Github key="github" /> },
+
       { name: 'shadcn/ui', icon: <Shadcn key="shadcn" /> },
       { name: 'MDX', icon: <MDXIcon key="mdx" /> },
       { name: 'Docker', icon: <Docker key="docker" /> },
@@ -92,6 +89,7 @@ export const projects: Project[] = [
       { name: 'Tailwind', icon: <TailwindCss key="tailwind" /> },
       { name: 'Postman', icon: <Postman key="postman" /> },
       { name: 'Vercel', icon: <Vercel key="vercel" /> },
+      { name: 'Github', icon: <Github key="github" /> },
       { name: 'SocketIO', icon: <SocketIo key="socket" /> },
       { name: 'Grafana', icon: <Grafana key="grafana" /> },
       { name: 'Prometheus', icon: <Prometheus key="promethus" /> },
