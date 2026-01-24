@@ -82,7 +82,7 @@ export function ProjectCard({ project }: ProjectCardProps) {
                 <TooltipTrigger>
                   <Link
                     className="text-secondary hover:text-primary flex size-6 items-center justify-center transition-colors"
-                    href={project.link || "#"}
+                    href={project.link || ""}
                     target="_blank"
                   >
                     <Website />
