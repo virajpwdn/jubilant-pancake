@@ -44,7 +44,7 @@ export const mySkills = [
 
 export const about = {
   name: 'Viraj Patwardhan',
-  description: `I’m a Full-Stack Developer and Open Source Contributor who builds production-ready MVPs that solve real-world problems.
+  description: `I’m a Full-Stack Developer who builds production-ready MVPs that solve real-world problems.
 
   I work across Frontend, Backend, DevOps, and GenAI, taking products from idea → MVP → scalable deployment. I enjoy designing systems, shipping fast, and iterating based on real user feedback.`,
 };
