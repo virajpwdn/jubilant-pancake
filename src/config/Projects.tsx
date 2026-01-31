@@ -38,44 +38,44 @@ import { OpenAiLogoIcon } from '@phosphor-icons/react/dist/ssr';
 
 export const projects: Project[] = [
   {
-    title: 'StackWave',
-    description:
-      'A real-time collaborative platform for developers to ask questions, share knowledge, and refactor code with AI assistance.',
-    image: '/project/best/stackwave.png',
-    video: 'https://res.cloudinary.com/dqka1mg1a/video/upload/v1769196207/stackwave_ssgyqi.mp4',
-    link: 'https://stackwave.virajpatwardhan.in',
+    title: 'NutriGuard AI - Multi-Agentic Workflow',
+    description: 'AI that reads your food labels and helps you eat smarter.',
+    image: '/project/best/nutri.png',
+    video:
+      'https://res.cloudinary.com/dqka1mg1a/video/upload/v1769196203/ng_ozz8kx.mp4',
+    link: '#',
     technologies: [
-      { name: 'React', icon: <ReactIcon key="reactjs" /> },
+      { name: 'Next.js', icon: <NextJs key="nextjs" /> },
+      { name: 'TypeScript', icon: <TypeScript key="typescript" /> },
+      { name: 'MongoDB', icon: <MongoDB key="mongo" /> },
       { name: 'Node Js', icon: <NodeJs key="nodejs" /> },
-      {
-        name: 'Open AI',
-        icon: <OpenAiLogoIcon key="openai" height={24} width={24} />,
-      },
-      { name: 'Javascript', icon: <JavaScript key="javascript" /> },
-      // { name: 'React', icon: <ReactIcon key="react" /> },
-      { name: 'AWS', icon: <AWS key="aws" /> },
-      { name: 'MongoDB', icon: <MongoDB key="mongodb" /> },
+      { name: 'Express', icon: <ExpressJs key="express" /> },
       { name: 'Tailwind CSS', icon: <TailwindCss key="tailwindcss" /> },
-            { name: 'Github', icon: <Github key="github" /> },
-
-      { name: 'shadcn/ui', icon: <Shadcn key="shadcn" /> },
-      { name: 'MDX', icon: <MDXIcon key="mdx" /> },
+      { name: 'Socket.io', icon: <SocketIo key="socketio" /> },
+      { name: 'Postman', icon: <Postman key="postman" /> },
+      {
+        name: 'LangGraph & LangChain',
+        icon: <LangGraphIcon key="langgraph" />,
+      },
+      { name: 'Kestra', icon: <KestraLogo key="kestra" /> },
       { name: 'Docker', icon: <Docker key="docker" /> },
-      { name: 'Redis', icon: <RedisIcon key="redis" width={22} height={28} /> },
-      { name: 'Socket IO', icon: <SocketIo key="socketio" /> },
+      { name: 'AWS', icon: <AWS key="aws" /> },
+      // { name: 'LangChain', icon: <LangChain key="langchain" /> },
+      { name: 'Kubernetes', icon: <Kubernetes key="kubernetes" /> },
+      { name: 'Mem0', icon: <Mem0Logo key="memory" /> },
     ],
-    github: 'https://github.com/virajpwdn/stackwave',
-    live: 'https://stackwave.virajpatwardhan.in',
+    // live: 'https://www.pasandidaurat.com/',
     details: true,
-    projectDetailsPageSlug: '/projects/stackwave',
-    isWorking: true,
+    projectDetailsPageSlug: '/projects/nutri-guard-ai',
+    isWorking: false, // Currently in development
   },
   {
     title: 'DevTinder',
     description:
       'A platform where developers connect, collaborate, and build together',
     image: '/project/best/devtinder.png',
-    video: 'https://res.cloudinary.com/dqka1mg1a/video/upload/v1769196195/devtinder-app_yigjq2.mp4',
+    video:
+      'https://res.cloudinary.com/dqka1mg1a/video/upload/v1769196195/devtinder-app_yigjq2.mp4',
     link: 'https://devtinder.virajpatwardhan.in',
     technologies: [
       { name: 'NodeJS', icon: <NodeJs key="node" /> },
@@ -109,42 +109,75 @@ export const projects: Project[] = [
     isWorking: true,
   },
   {
-    title: 'NutriGuard AI - Multi-Agentic Workflow',
-    description: 'AI that reads your food labels and helps you eat smarter.',
-    image: '/project/best/nutri.png',
-    video: 'https://res.cloudinary.com/dqka1mg1a/video/upload/v1769196203/ng_ozz8kx.mp44',
+    title: 'CodeForge AI',
+    description:
+      'Transform your ideas into beautiful web applications instantly. Generate Code, deploy automatically and push directly to github all with single prompt',
+    image: '/project/best/cursor-app.png',
+    video:
+      'https://res.cloudinary.com/dqka1mg1a/video/upload/v1769196208/cursor-app_fexht1.mp4',
     link: '#',
+    github: 'https://github.com/virajpwdn/GENAI',
     technologies: [
-      { name: 'Next.js', icon: <NextJs key="nextjs" /> },
-      { name: 'TypeScript', icon: <TypeScript key="typescript" /> },
-      { name: 'MongoDB', icon: <MongoDB key="mongo" /> },
-      { name: 'Node Js', icon: <NodeJs key="nodejs" /> },
-      { name: 'Express', icon: <ExpressJs key="express" /> },
-      { name: 'Tailwind CSS', icon: <TailwindCss key="tailwindcss" /> },
-      { name: 'Socket.io', icon: <SocketIo key="socketio" /> },
-      { name: 'Postman', icon: <Postman key="postman" /> },
+      { name: 'Python', icon: <PythonLogo key="pythonlogo" /> },
       {
         name: 'LangGraph & LangChain',
         icon: <LangGraphIcon key="langgraph" />,
       },
-      { name: 'Kestra', icon: <KestraLogo key="kestra" /> },
-      { name: 'Docker', icon: <Docker key="docker" /> },
-      { name: 'AWS', icon: <AWS key="aws" /> },
-      // { name: 'LangChain', icon: <LangChain key="langchain" /> },
-      { name: 'Kubernetes', icon: <Kubernetes key="kubernetes" /> },
       { name: 'Mem0', icon: <Mem0Logo key="memory" /> },
+      { name: 'FastApi', icon: <FastAPILogo key="fastapi" /> },
+      { name: 'MongoDB', icon: <MongoDB key="mongo" /> },
+      { name: 'Socket.io', icon: <SocketIo key="socketio" /> },
+      { name: 'Postman', icon: <Postman key="postman" /> },
+      { name: 'AWS', icon: <AWS key="aws" /> },
+      { name: 'Docker', icon: <Docker key="docker" /> },
+      // { name: 'Kubernetes', icon: <Kubernetes key="kubernetes" /> },
     ],
     // live: 'https://www.pasandidaurat.com/',
     details: true,
-    projectDetailsPageSlug: '/projects/nutri-guard-ai',
+    projectDetailsPageSlug: '/projects/code-forge',
     isWorking: false, // Currently in development
+  },
+  {
+    title: 'StackWave',
+    description:
+      'A real-time collaborative platform for developers to ask questions, share knowledge, and refactor code with AI assistance.',
+    image: '/project/best/stackwave.png',
+    video:
+      'https://res.cloudinary.com/dqka1mg1a/video/upload/v1769196207/stackwave_ssgyqi.mp4',
+    link: 'https://stackwave.virajpatwardhan.in',
+    technologies: [
+      { name: 'React', icon: <ReactIcon key="reactjs" /> },
+      { name: 'Node Js', icon: <NodeJs key="nodejs" /> },
+      {
+        name: 'Open AI',
+        icon: <OpenAiLogoIcon key="openai" height={24} width={24} />,
+      },
+      { name: 'Javascript', icon: <JavaScript key="javascript" /> },
+      // { name: 'React', icon: <ReactIcon key="react" /> },
+      { name: 'AWS', icon: <AWS key="aws" /> },
+      { name: 'MongoDB', icon: <MongoDB key="mongodb" /> },
+      { name: 'Tailwind CSS', icon: <TailwindCss key="tailwindcss" /> },
+      { name: 'Github', icon: <Github key="github" /> },
+
+      { name: 'shadcn/ui', icon: <Shadcn key="shadcn" /> },
+      { name: 'MDX', icon: <MDXIcon key="mdx" /> },
+      { name: 'Docker', icon: <Docker key="docker" /> },
+      { name: 'Redis', icon: <RedisIcon key="redis" width={22} height={28} /> },
+      { name: 'Socket IO', icon: <SocketIo key="socketio" /> },
+    ],
+    github: 'https://github.com/virajpwdn/stackwave',
+    live: 'https://stackwave.virajpatwardhan.in',
+    details: true,
+    projectDetailsPageSlug: '/projects/stackwave',
+    isWorking: true,
   },
   {
     title: 'PersonaAI',
     description:
       'PersonaAI is an AI-driven platform that allows users to interact with the personas of highly successful individuals to seek guidance, insights, and advice on their goals and plans.',
     image: '/project/best/persona.png',
-    video: 'https://res.cloudinary.com/dqka1mg1a/video/upload/v1769196201/persona-app_vutoal.mp4',
+    video:
+      'https://res.cloudinary.com/dqka1mg1a/video/upload/v1769196201/persona-app_vutoal.mp4',
     link: '#',
     github: 'https://github.com/virajpwdn/PersonaAI',
     technologies: [
@@ -175,39 +208,12 @@ export const projects: Project[] = [
     isWorking: false, // Currently in development
   },
   {
-    title: 'CodeForge AI',
-    description:
-      'Transform your ideas into beautiful web applications instantly. Generate Code, deploy automatically and push directly to github all with single prompt',
-    image: '/project/best/cursor-app.png',
-    video: 'https://res.cloudinary.com/dqka1mg1a/video/upload/v1769196208/cursor-app_fexht1.mp4',
-    link: '#',
-    github: 'https://github.com/virajpwdn/GENAI',
-    technologies: [
-      { name: 'Python', icon: <PythonLogo key="pythonlogo" /> },
-      {
-        name: 'LangGraph & LangChain',
-        icon: <LangGraphIcon key="langgraph" />,
-      },
-      { name: 'Mem0', icon: <Mem0Logo key="memory" /> },
-      { name: 'FastApi', icon: <FastAPILogo key="fastapi" /> },
-      { name: 'MongoDB', icon: <MongoDB key="mongo" /> },
-      { name: 'Socket.io', icon: <SocketIo key="socketio" /> },
-      { name: 'Postman', icon: <Postman key="postman" /> },
-      { name: 'AWS', icon: <AWS key="aws" /> },
-      { name: 'Docker', icon: <Docker key="docker" /> },
-      // { name: 'Kubernetes', icon: <Kubernetes key="kubernetes" /> },
-    ],
-    // live: 'https://www.pasandidaurat.com/',
-    details: true,
-    projectDetailsPageSlug: '/projects/code-forge',
-    isWorking: true, // Currently in development
-  },
-  {
     title: 'Ragify',
     description:
       'Upload PDFs and get intelligent, accurate answers powered by advanced Al. No more manual searching through pages of documents.',
     image: '/project/best/pdf-chat.png',
-    video: 'https://res.cloudinary.com/dqka1mg1a/video/upload/v1769196189/pdfchat-app_vtie0v.mp4',
+    video:
+      'https://res.cloudinary.com/dqka1mg1a/video/upload/v1769196189/pdfchat-app_vtie0v.mp4',
     link: '#',
     github: 'https://github.com/virajpwdn/GENAI/tree/main/rag',
     technologies: [
@@ -267,7 +273,8 @@ export const projects: Project[] = [
     description:
       "Apple-style MacBook Pro landing page with buttery-smooth 3D animations and interactive Three.js modeling—pixel-perfect recreation of Apple's showcase experience.",
     image: '/project/best/apple.png',
-    video: 'https://res.cloudinary.com/dqka1mg1a/video/upload/v1769196189/pdfchat-app_vtie0v.mp4',
+    video:
+      'https://res.cloudinary.com/dqka1mg1a/video/upload/v1769196189/pdfchat-app_vtie0v.mp4',
     link: 'https://apple.virajpatwardhan.in/',
     technologies: [
       { name: 'React', icon: <ReactIcon key="react" /> },
@@ -288,7 +295,8 @@ export const projects: Project[] = [
     description:
       'Gaming website with immersive 3D animations, agent showcases, and performance-optimized experience',
     image: '/project/best/game.png',
-    video: 'https://res.cloudinary.com/dqka1mg1a/video/upload/v1769196206/zentry-app_jw1jmx.mp4',
+    video:
+      'https://res.cloudinary.com/dqka1mg1a/video/upload/v1769196206/zentry-app_jw1jmx.mp4',
     link: 'https://zentry.virajpatwardhan.in/',
     technologies: [
       { name: 'React', icon: <ReactIcon key="react" /> },
@@ -309,7 +317,8 @@ export const projects: Project[] = [
     description:
       'A platform to store and manage your data with TransferX – The all-in-one platform offering scalable, secure, and efficient storage for all your needs.',
     image: '/project/best/transferx.png',
-    video: 'https://res.cloudinary.com/dqka1mg1a/video/upload/v1769196178/transferx_uf7zsj.mp4',
+    video:
+      'https://res.cloudinary.com/dqka1mg1a/video/upload/v1769196178/transferx_uf7zsj.mp4',
     link: 'https://trasnferx.virajpatwardhan.in/',
     technologies: [
       { name: 'NextJs', icon: <NextJs key="nextjs" /> },
@@ -329,7 +338,8 @@ export const projects: Project[] = [
     description:
       'Empower your creativity and bring your VR app ideas to life with our intuitive development tools. Get started today and turn your imagination into immersive reality!',
     image: '/project/best/virtual.png',
-    video: 'https://res.cloudinary.com/dqka1mg1a/video/upload/v1769196171/virtual_huwehe.mp4',
+    video:
+      'https://res.cloudinary.com/dqka1mg1a/video/upload/v1769196171/virtual_huwehe.mp4',
     link: 'https://virtual.virajpatwardhan.in/',
     technologies: [
       { name: 'React', icon: <ReactIcon key="react" /> },
@@ -347,7 +357,8 @@ export const projects: Project[] = [
     title: 'Base Habitation',
     description: 'An awwwards winning website, site of the month',
     image: '/project/best/base.png',
-    video: 'https://res.cloudinary.com/dqka1mg1a/video/upload/v1769196193/basehabitation_dke47t.mp4',
+    video:
+      'https://res.cloudinary.com/dqka1mg1a/video/upload/v1769196193/basehabitation_dke47t.mp4',
     link: 'https://basehabitation.virajpatwardhan.in/',
     technologies: [
       { name: 'Javascript', icon: <JavaScript key="js" /> },
@@ -366,7 +377,8 @@ export const projects: Project[] = [
     description:
       'Flutter compiles down to native machine code for fast apps and beautiful animations.',
     image: '/project/best/flutter.png',
-    video: 'https://res.cloudinary.com/dqka1mg1a/video/upload/v1769196205/expo_ib3uva.mp4',
+    video:
+      'https://res.cloudinary.com/dqka1mg1a/video/upload/v1769196205/expo_ib3uva.mp4',
     link: 'https://expo.virajpatwardhan.in',
     technologies: [
       { name: 'Scss', icon: <SCSSLogo key="scss" /> },
@@ -386,7 +398,8 @@ export const projects: Project[] = [
     description:
       'Sundown is a multi-disciplinary studio focused on creating unique, end-to-end experiences and environments',
     image: '/project/best/sundown.png',
-    video: 'https://res.cloudinary.com/dqka1mg1a/video/upload/v1769196184/sundown_szuugo.mp4',
+    video:
+      'https://res.cloudinary.com/dqka1mg1a/video/upload/v1769196184/sundown_szuugo.mp4',
     link: 'https://sundownstudio.virajpatwardhan.in/',
     technologies: [
       { name: 'Javascript', icon: <JavaScript key="js" /> },
