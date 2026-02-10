@@ -34,7 +34,7 @@ import ThreeJs from '@/components/technologies/ThreeJs';
 import TypeScript from '@/components/technologies/TypeScript';
 import Vercel from '@/components/technologies/Vercel';
 import { Project } from '@/types/project';
-import { OpenAiLogoIcon } from '@phosphor-icons/react/dist/ssr';
+import { GithubLogoIcon, OpenAiLogoIcon } from '@phosphor-icons/react/dist/ssr';
 
 export const projects: Project[] = [
   {
@@ -89,7 +89,7 @@ export const projects: Project[] = [
       { name: 'Tailwind', icon: <TailwindCss key="tailwind" /> },
       { name: 'Postman', icon: <Postman key="postman" /> },
       { name: 'Vercel', icon: <Vercel key="vercel" /> },
-      { name: 'Github', icon: <Github key="github" /> },
+      { name: 'Github', icon: <GithubLogoIcon key="github" size={22} /> },
       { name: 'SocketIO', icon: <SocketIo key="socket" /> },
       { name: 'Grafana', icon: <Grafana key="grafana" /> },
       { name: 'Prometheus', icon: <Prometheus key="promethus" /> },
@@ -157,7 +157,7 @@ export const projects: Project[] = [
       { name: 'AWS', icon: <AWS key="aws" /> },
       { name: 'MongoDB', icon: <MongoDB key="mongodb" /> },
       { name: 'Tailwind CSS', icon: <TailwindCss key="tailwindcss" /> },
-      { name: 'Github', icon: <Github key="github" /> },
+      { name: 'Github', icon: <GithubLogoIcon size={22} key="github" /> },
 
       { name: 'shadcn/ui', icon: <Shadcn key="shadcn" /> },
       { name: 'MDX', icon: <MDXIcon key="mdx" /> },
