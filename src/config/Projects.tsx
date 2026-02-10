@@ -5,7 +5,6 @@ import CloudflareIcon from '@/components/technologies/Cloudflare';
 import Docker from '@/components/technologies/Docker';
 import ExpressJs from '@/components/technologies/ExpressJs';
 import FastAPILogo from '@/components/technologies/FastApi';
-import Github from '@/components/technologies/Github';
 import Grafana from '@/components/technologies/Grafana';
 import GSAPIcon from '@/components/technologies/GsapIcon';
 import HTMLLogo from '@/components/technologies/HtmlIcon';
