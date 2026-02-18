@@ -21,15 +21,29 @@ export default function Navbar() {
             />
           </Link>
           <div className="flex items-center justify-center gap-4">
-            {navbarConfig.navItems.map((item) => (
-              <Link
-                className="transition-all duration-300 ease-in-out hover:underline hover:decoration-2 hover:underline-offset-4"
-                key={item.label}
-                href={item.href}
-              >
-                {item.label}
-              </Link>
-            ))}
+            {navbarConfig.navItems.map((item) => {
+              const isExternal = item.label === 'Blogs';
+
+              return isExternal ? (
+                <a
+                  key={item.label}
+                  href="https://blog.virajpatwardhan.in"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="transition-all duration-300 ease-in-out hover:underline hover:decoration-2 hover:underline-offset-4"
+                >
+                  {item.label}
+                </a>
+              ) : (
+                <Link
+                  key={item.label}
+                  href={item.href}
+                  className="transition-all duration-300 ease-in-out hover:underline hover:decoration-2 hover:underline-offset-4"
+                >
+                  {item.label}
+                </Link>
+              );
+            })}
           </div>
         </div>
         <div className="flex items-center gap-4">
