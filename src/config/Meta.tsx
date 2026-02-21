@@ -31,6 +31,7 @@ export const siteConfig = {
     'nextjs',
     'typescript',
     'web development',
+    'devops',
     heroConfig.name.toLowerCase(),
   ],
 };

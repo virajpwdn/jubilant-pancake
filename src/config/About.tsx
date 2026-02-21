@@ -20,7 +20,7 @@ import TypeScript from '@/components/technologies/TypeScript';
 import { OpenAiLogoIcon } from '@phosphor-icons/react/dist/ssr';
 
 export const mySkills = [
-  <ReactIcon key="react" />,  
+  <ReactIcon key="react" />,
   <JavaScript key="javascript" />,
   <TypeScript key="typescript" />,
   <MongoDB key="mongodb" />,
@@ -39,12 +39,10 @@ export const mySkills = [
   <Grafana key="grafana" />,
   <Prometheus key="prometheus" />,
   <AWS key="aws" />,
-  <Kubernetes key="kubernetes" />
+  <Kubernetes key="kubernetes" />,
 ];
 
 export const about = {
   name: 'Viraj Patwardhan',
-  description: `I’m a Full-Stack Developer who builds production-ready MVPs that solve real-world problems.
-
-  I work across Frontend, Backend, DevOps, and GenAI, taking products from idea → MVP → scalable deployment. I enjoy designing systems, shipping fast, and iterating based on real user feedback.`,
+  description: `Three years in, I've gone from writing my first components to owning systems end-to-end in production. I'm drawn to hard problems — the kind that need clean architecture, not just clever code. When I'm not building, I'm probably strumming guitar, at the gym, planning my next trip, or on my third coffee of the day.`,
 };

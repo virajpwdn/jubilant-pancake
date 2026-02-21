@@ -127,7 +127,7 @@ export const heroConfig = {
   // Description Configuration
   description: {
     template:
-      'I build interactive web apps with {skills:0}, {skills:1}, {skills:2}, and {skills:3}. I containerize application with {skills:4}, deploy via {skills:5}, {skills:6} CICD and add observability with {skills:7}, 🪵 Loki, and {skills:8} I also build RAGs and multi-node AI agents using LangGraph.',
+      'Shipping <b>production-grade web systems end-to-end</b> — <b>React/Next.js</b> frontends, <b>Node.js</b> backend, <b>containerized deployments</b>, and <b>instrumented infrastructure</b>. I own systems from <b>architecture through CI/CD and monitoring</b>, and build AI features including <b>RAG pipelines</b> and <b>multi-agent workflows</b>. Recently cut <b>search latency by 50%</b> using <b>Elasticsearch</b> and <b>Redis caching</b>.',
   },
 
   // Buttons Configuration
