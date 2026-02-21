@@ -70,7 +70,6 @@ export const experiences: Experience[] = [
       'Migrated Frontend from React to Next JS for SSR',
       'Built responsive UI components for a consistent experience across devices.',
       'Collaborated with the team to move environment secrets from local configurations to Doppler, improving centralized secret management and security.',
-      
     ],
     startDate: 'June 2025',
     endDate: 'Nov 2025',
