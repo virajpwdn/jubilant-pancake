@@ -34,7 +34,7 @@ export default function Hero() {
         );
       } else if (part.type === 'bold' && 'text' in part) {
         return (
-          <b key={part.key} className="text-primary whitespace-pre-wrap">
+          <b key={part.key} className="text-primary/80 whitespace-pre-wrap">
             {part.text}
           </b>
         );
@@ -66,7 +66,7 @@ export default function Hero() {
           Hi, I&apos;m {name} — <span className="text-secondary">{title}</span>
         </h1>
 
-        <div className="mt-4  items-center gap-x-1.5 gap-y-2 text-base whitespace-pre-wrap text-neutral-500 md:text-lg">
+        <div className="mt-4 items-center gap-x-1.5 gap-y-2 text-base whitespace-pre-wrap text-neutral-500 md:text-lg">
           {renderDescription()}
         </div>
       </div>

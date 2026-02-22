@@ -21,11 +21,12 @@ export const useThemeToggle = ({
 } = {}) => {
   const { theme, setTheme, resolvedTheme } = useTheme();
 
-  const [isDark, setIsDark] = useState(false);
+  const isDarkMode = resolvedTheme === 'dark';
+  const [isDark, setIsDark] = useState(isDarkMode);
 
-  useEffect(() => {
-    setIsDark(resolvedTheme === 'dark');
-  }, [resolvedTheme]);
+  // useEffect(() => {
+  //   setIsDark(resolvedTheme === 'dark');
+  // }, [resolvedTheme]);
 
   const styleId = 'theme-transition-styles';
 
