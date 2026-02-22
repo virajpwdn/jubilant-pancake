@@ -27,9 +27,9 @@ export interface ProjectCaseStudyFrontmatter {
   challenges?: string[];
   learnings?: string[];
   isPublished: boolean;
-  hldImage?: string,
-  dbImage?: string
-  video?: string
+  hldImage?: string;
+  dbImage?: string;
+  video?: string;
 }
 
 export interface ProjectCaseStudy {

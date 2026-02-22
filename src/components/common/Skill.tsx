@@ -5,7 +5,7 @@ interface SkillProps {
   name: string;
   href: string;
   children: React.ReactNode;
-  className?: string
+  className?: string;
 }
 
 export default function Skill({ name, href, children }: SkillProps) {

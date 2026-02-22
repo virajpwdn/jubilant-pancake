@@ -1,4 +1,8 @@
-export default function WooCommerceIcon({ width = 16, height = 16, className = "" }) {
+export default function WooCommerceIcon({
+  width = 16,
+  height = 16,
+  className = '',
+}) {
   return (
     <svg
       xmlns="http://www.w3.org/2000/svg"

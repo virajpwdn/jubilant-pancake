@@ -1,10 +1,10 @@
-export default function RazorpayLogo({ width = 100, className = "" }) {
+export default function RazorpayLogo({ width = 100, className = '' }) {
   return (
     <svg
       xmlns="http://www.w3.org/2000/svg"
       viewBox=".8 .48 1894.74 400.27"
       width={width}
-    //   height={height}
+      //   height={height}
       className={className}
     >
       <path

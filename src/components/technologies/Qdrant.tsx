@@ -1,4 +1,8 @@
-export default function QdrantLogo({ width = 24, height = 24, className = "" }) {
+export default function QdrantLogo({
+  width = 24,
+  height = 24,
+  className = '',
+}) {
   return (
     <svg
       xmlns="http://www.w3.org/2000/svg"

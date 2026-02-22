@@ -1,4 +1,4 @@
-export default function Mem0Logo({ width = 22, height = 24, className = "" }) {
+export default function Mem0Logo({ width = 22, height = 24, className = '' }) {
   return (
     <svg
       width={width}

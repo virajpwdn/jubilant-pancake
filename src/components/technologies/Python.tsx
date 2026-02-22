@@ -1,4 +1,8 @@
-export default function PythonLogo({ width = 24, height = 24, className = "" }) {
+export default function PythonLogo({
+  width = 24,
+  height = 24,
+  className = '',
+}) {
   return (
     <svg
       width={width}
@@ -10,11 +14,23 @@ export default function PythonLogo({ width = 24, height = 24, className = "" }) 
       className={className}
     >
       <defs>
-        <linearGradient x1="12.9593594%" y1="12.0393928%" x2="79.6388325%" y2="78.2008538%" id="linearGradient-1">
+        <linearGradient
+          x1="12.9593594%"
+          y1="12.0393928%"
+          x2="79.6388325%"
+          y2="78.2008538%"
+          id="linearGradient-1"
+        >
           <stop stopColor="#387EB8" offset="0%" />
           <stop stopColor="#366994" offset="100%" />
         </linearGradient>
-        <linearGradient x1="19.127525%" y1="20.5791813%" x2="90.7415328%" y2="88.4290372%" id="linearGradient-2">
+        <linearGradient
+          x1="19.127525%"
+          y1="20.5791813%"
+          x2="90.7415328%"
+          y2="88.4290372%"
+          id="linearGradient-2"
+        >
           <stop stopColor="#FFE052" offset="0%" />
           <stop stopColor="#FFC331" offset="100%" />
         </linearGradient>

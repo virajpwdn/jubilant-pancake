@@ -4,7 +4,7 @@ import Gallery from '@/components/photos/Gallery';
 const page = () => {
   return (
     <div>
-      <Container className=''>
+      <Container>
         <Gallery />
       </Container>
     </div>

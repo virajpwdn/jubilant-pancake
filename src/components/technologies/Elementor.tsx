@@ -1,4 +1,8 @@
-export default function ElementorIcon({ width = 15, height = 15, className = "" }) {
+export default function ElementorIcon({
+  width = 15,
+  height = 15,
+  className = '',
+}) {
   return (
     <svg
       xmlns="http://www.w3.org/2000/svg"
@@ -17,8 +21,8 @@ export default function ElementorIcon({ width = 15, height = 15, className = "" 
           y2="756.645"
           gradientTransform="matrix(595.2751 0 0 595.2777 8131.8652 -449695.9063)"
         >
-          <stop offset="0" style={{ stopColor: "#ED345E" }} />
-          <stop offset="1" style={{ stopColor: "#382C74" }} />
+          <stop offset="0" style={{ stopColor: '#ED345E' }} />
+          <stop offset="1" style={{ stopColor: '#382C74' }} />
         </linearGradient>
       </defs>
       <path
