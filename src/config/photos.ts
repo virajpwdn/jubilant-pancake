@@ -44,10 +44,7 @@ export const leftGridUrl = [
     url: 'https://res.cloudinary.com/dqka1mg1a/image/upload/v1771756663/IMG_4104_ryul9a.jpg',
     type: 'img',
   },
-  {
-    url: 'https://res.cloudinary.com/dqka1mg1a/video/upload/v1771756534/IMG_6598_ez6jpo.mp4',
-    type: 'vid',
-  },
+
   {
     url: 'https://res.cloudinary.com/dqka1mg1a/image/upload/v1771756662/IMG_4322_pkpbkt.jpg',
     type: 'img',
@@ -56,7 +53,10 @@ export const leftGridUrl = [
     url: 'https://res.cloudinary.com/dqka1mg1a/video/upload/v1771771331/IMG_6359_qaa0g9.mp4',
     type: 'vid',
   },
-
+  {
+    url: 'https://res.cloudinary.com/dqka1mg1a/image/upload/v1771756644/IMG_2788_kw5ukt.jpg',
+    type: 'img',
+  },
   {
     url: 'https://res.cloudinary.com/dqka1mg1a/video/upload/v1771771328/IMG_4352_hpmuru.mp4',
     type: 'vid',
@@ -160,8 +160,5 @@ export const rightGridUrl = [
     url: 'https://res.cloudinary.com/dqka1mg1a/video/upload/v1771756529/IMG_4222_seud6l.mp4',
     type: 'vid',
   },
-  {
-    url: 'https://res.cloudinary.com/dqka1mg1a/image/upload/v1771756644/IMG_2788_kw5ukt.jpg',
-    type: 'img',
-  },
+
  */
