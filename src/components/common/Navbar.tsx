@@ -20,7 +20,7 @@ export default function Navbar() {
               height={navbarConfig.logo.height}
             />
           </Link>
-          <div className="flex items-center justify-center gap-4">
+          <div className="flex items-center justify-center gap-4 max-sm:text-xs">
             {navbarConfig.navItems.map((item) => {
               const isExternal = item.label === 'Blogs';
 

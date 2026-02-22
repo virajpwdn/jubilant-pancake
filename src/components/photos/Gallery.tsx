@@ -23,6 +23,7 @@ const Gallery = () => {
               width={300}
               muted
               autoPlay
+              playsInline
               loop
               className="object-cover rounded-lg"
             />
@@ -46,6 +47,7 @@ const Gallery = () => {
               key={idx}
               height={400}
               width={300}
+              playsInline
               muted
               autoPlay
               loop

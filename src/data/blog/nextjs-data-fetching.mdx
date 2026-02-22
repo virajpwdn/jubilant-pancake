@@ -1,320 +1,446 @@
 ---
-title: 'Next.JS Data Fetching mistakes & Security vulnerabilities'
-description: 'A guide to Next.js data fetching mistakes & security vulnerabilities'
-image: '/blog/nextjs-data-fetching.png'
-tags: ['frontend', 'development', 'nextjs']
-date: '2025-07-05'
+title: 'React Lifecycle Phases: Render, Commit & What Happens Under the Hood'
+description: 'A deep dive into React component lifecycle phases, batching, Virtual DOM, and the difference between initial mount and updates.'
+image: '/blog/react-lifecycle-phases.png'
+tags: ['frontend', 'development', 'react']
+date: '2025-07-12'
 isPublished: true
 ---
 
-## The typical vulnerability
+## Introduction to React Lifecycle Phases
 
-Fetching data in `Next. Js` feels pretty straightforward foe the first time.
-Just use async await in react server component and good to go.
+Every React component goes through a series of phases during its lifetime. Understanding these phases is crucial for writing efficient React applications and debugging complex component behaviors.
 
-If user authenticate required await headers, cookies or session as you required.
+React's lifecycle is divided into two main phases:
 
-Here's what flow looks like :
+- **Render Phase** — Pure computation, no side effects
+- **Commit Phase** — DOM manipulation and side effects
 
-Create an async function, grab some data with Prisma (suppose all the TODO from DB), call it inside your RSC (react server component), and you're done, right?
+Let's dive deep into each phase and understand what happens under the hood.
 
-Unfortunately, NO
-It's not simple actually. What you have done is created a POST request. Not GET but a POST request because that's how Next. Js works under the hood.
+## The Two Phases Explained
 
-So what's the issue with POST request?
-The issue is -
+### Render Phase: The Blueprint Creation
 
-- It blocks parallelism
-- It doesn't support caching
-- Bypass your authenticate
-- And also create a security vulnerability
+The Render Phase is where React prepares the component for display. This phase is **pure** and has no side effects, meaning React can pause, abort, or restart it for optimization purposes.
 
-## The problem
+What happens in the Render Phase:
 
-### Server Actions for Data Fetching
+- Component is mounted (instance created)
+- Constructor is called (for class components)
+- Render method is executed
+- Virtual DOM tree is created
+- Reconciliation occurs (comparing trees)
 
-Let's start with a common example.
-I've built a simple todo application where users can create todos that render below a form.
-
-Here's what the typical (but problematic) implementation looks like:
-
-```ts
-// page.tsx
-'use client';
-
-export default function Home() {
-  const [todos, setTodos] = useState([]);
-
-  useEffect(() => {
-    getTodos().then(setTodos);
-  }, []);
-
-  // Rest of component...
-}
-```
-
-```ts
-// actions.ts
-'use server';
-
-export async function getTodos() {
-  const todos = await prisma.todo.findMany();
-  return todos;
-}
-```
-
-This works, but it creates several critical problems:
-
-#### Problem 1 : POST Requests for Data Fetching
-
-When you use server actions to fetch data, you're creating POST requests instead of GET requests.
-
-I'd say open your browser tab and fetch something using server action and the request will be shown as POST Request.
-
-![POST Req](https://i.postimg.cc/LsDWwMWN/image.png)
-
-#### Problem 2 : No Parallelism
-
-The bigger issue is that POST requests run successively, not in parallel.
-If I we suppose request takes 15-second for the data fetching function and try to create a new todo while data is loading, the creation request waits for the fetch to complete first. This destroys performance.
-
-Here's what happens:
-
-- Request 1 (fetch): 15 seconds
-- Request 2 (create): Waits for Request 1 to finish, then executes
-- Total time: 15+ seconds
-
-![What we doing](https://i.postimg.cc/d0KSN0tb/image.png)
-
-What we want:
-
-- Request 1 (fetch): 15 seconds
-- Request 2 (create): 0.01 seconds (runs in parallel)
-- Total time: ~15 seconds
-
-![What we want](https://i.postimg.cc/0NxcdHVx/image.png)
-
-#### Solution 1: Server Components with Streaming
-
-The first step is moving data fetching to server components.
-Server components let you fetch data and render parts of your UI on the server, with optional caching and streaming.
-
-Example :
-
-```typescript
-// page.tsx (Server Component)
-import { Suspense } from 'react'
-import TodoForm from './components/todo-form'
-import TodoList from './components/todo-list'
-
-export default function Home() {
-  return (
-    <div>
-      <TodoForm />
-      <Suspense fallback={<div>Loading...</div>}>
-        <TodoList />
-      </Suspense>
-    </div>
-  )
-}
-```
-
-```typescript
-// components/todo-form.tsx (Client Component)
-'use client';
-
-export default function TodoForm() {
-  // Form logic with client-side validation
-  // and server action for mutations
-}
-```
-
-```typescript
-// components/todo-list.tsx (Server Component)
-import prisma from '@/lib/prisma'
-
-async function getTodos() {
-  return await prisma.todo.findMany()
-}
-
-export default async function TodoList() {
-  const todos = await getTodos()
-
-  return (
-    <div>
-      {todos.map(todo => (
-        <div key={todo.id}>
-          <h3>{todo.title}</h3>
-          <p>{todo.content}</p>
-        </div>
-      ))}
-    </div>
-  )
-}
-```
-
-This approach:
-
-- Uses GET requests (implicit in server components)
-- Enables parallel request execution
-- Provides streaming with Suspense boundaries
-- Maintains proper separation between server and client code
-
-#### The Security Problem: Session Verification
-
-Now let's add authentication.
-A common mistake is verifying sessions only at the page level:
-
-```typescript
-// page.tsx
-export default async function Home() {
-  const { getUser } = getServerSession()
-  const user = await getUser()
-
-  if (!user) {
-    redirect('/api/auth/login')
+```tsx
+class MyComponent extends React.Component {
+  constructor(props) {
+    super(props);
+    console.log('🔧 Constructor called - Render Phase');
+    this.state = { count: 0 };
   }
 
-  return (
-    // Component JSX
-  )
+  render() {
+    console.log('🎨 Render method called - Render Phase');
+    return (
+      <div>
+        <h1>Count: {this.state.count}</h1>
+        <button onClick={() => this.setState({ count: this.state.count + 1 })}>
+          Increment
+        </button>
+      </div>
+    );
+  }
 }
 ```
 
-This seems secure, but it creates a critical vulnerability.
-What happens when you extract the `TodoList` component for reuse?
-Suppose you created a `/test` route and imported the `TodoList` component and forgot to do validation there or If another developer creates a new route and imports your component:
+### Commit Phase: Making It Real
 
-```typescript
-// app/test/page.tsx
-import TodoList from '@/components/todo-list'
+The Commit Phase is where React actually updates the DOM and runs side effects. This phase **cannot be interrupted** and runs synchronously.
 
-export default function TestPage() {
-  return <TodoList /> // No session verification!
+What happens in the Commit Phase:
+
+- React updates the actual DOM
+- Layout effects run (`useLayoutEffect`)
+- `componentDidMount` is called
+- Refs are attached
+- Cleanup functions are scheduled
+
+```tsx
+componentDidMount() {
+  console.log('🚀 componentDidMount called - Commit Phase');
+  // DOM is now updated and visible
+  // Safe to make API calls, set up subscriptions, etc.
+
+  fetch('/api/data')
+    .then(response => response.json())
+    .then(data => this.setState({ data }));
 }
 ```
 
-Visiting `/test` in an incognito browser will display the todos without authentication.
-The session check only exists at the page level, not where the data is actually fetched.
+## Component Batching and Optimization
 
-#### Solution 2: Data Access Layer
+One of React's most powerful optimizations is **batching**. When you have a parent component with multiple children, React doesn't render them one by one — it batches the entire process for maximum efficiency.
 
-The [Next.js documentation recommends](https://nextjs.org/docs/app/building-your-application/data-fetching/patterns#creating-a-data-access-layer) creating a data access layer to centralize data requests and authorization logic.
+### The Batching Process
 
-Here's the implementation:
+Consider this component hierarchy:
 
-```typescript
-// app/data/user/require-user.ts
-import { redirect } from 'next/navigation';
-import { cache } from 'react';
-import 'server-only';
+```
+Parent
+├── Child1
+└── Child2
+```
 
-export const requireUser = cache(async () => {
-  const { getUser } = getServerSession();
-  const user = await getUser();
+Here's the exact order of execution:
 
-  if (!user) {
-    redirect('/api/auth/login');
+**Render Phase (Top-down):**
+
+1. Parent constructor called
+2. Parent render method called
+3. Child1 constructor called
+4. Child1 render method called
+5. Child2 constructor called
+6. Child2 render method called
+
+**Commit Phase (Bottom-up):**
+
+7. Child1 `componentDidMount` called
+8. Child2 `componentDidMount` called
+9. Parent `componentDidMount` called
+
+### Why This Order Matters
+
+The bottom-up execution in the commit phase ensures that:
+
+- Child components are fully mounted before parent's `componentDidMount`
+- Parent can safely access child DOM elements
+- Event handlers and refs work correctly
+- API calls in parent can depend on children being ready
+
+```tsx
+class Parent extends React.Component {
+  componentDidMount() {
+    // At this point, ALL children are guaranteed to be mounted
+    // Safe to query child DOM elements or call child methods
+    console.log('Parent mounted - all children are ready!');
   }
 
-  return user;
-});
-```
-
-```typescript
-// app/data/todo/get-todos.ts
-import prisma from '@/lib/prisma';
-import 'server-only';
-
-import { requireUser } from '../user/require-user';
-
-export async function getTodos() {
-  await requireUser(); // Verify session before fetching data
-
-  return await prisma.todo.findMany();
+  render() {
+    return (
+      <div>
+        <Child1 ref={this.child1Ref} />
+        <Child2 ref={this.child2Ref} />
+      </div>
+    );
+  }
 }
 ```
 
-\
+## Virtual DOM vs Real DOM
 
-```typescript
-// components/todo-list.tsx
-import { getTodos } from '@/app/data/todo/get-todos'
+Understanding the difference between Virtual DOM and Real DOM is crucial for grasping React's performance benefits.
 
-export default async function TodoList() {
-  const todos = await getTodos()
+### What is Virtual DOM?
 
-  return (
-    <div>
-      {todos.map(todo => (
-        <div key={todo.id}>
-          <h3>{todo.title}</h3>
-          <p>{todo.content}</p>
-        </div>
-      ))}
-    </div>
-  )
+Virtual DOM is simply a **JavaScript object representation** of the actual DOM. When you write JSX, it gets converted into these objects during the Render Phase.
+
+```tsx
+// Your JSX
+<div className="container">
+  <h1>Hello World</h1>
+  <button onClick={handleClick}>Click me</button>
+</div>
+
+// Becomes Virtual DOM (JavaScript objects)
+{
+  type: 'div',
+  props: {
+    className: 'container',
+    children: [
+      {
+        type: 'h1',
+        props: { children: 'Hello World' }
+      },
+      {
+        type: 'button',
+        props: {
+          onClick: handleClick,
+          children: 'Click me'
+        }
+      }
+    ]
+  }
 }
 ```
 
-### Benefits of the Data Access Layer
+### The Journey from Code to Screen
 
-1. **Single Source of Truth**: All data-related code is centralized in one place, making updates and debugging easier.
-2. **Natural Security Checkpoint**: Session verification happens where data is fetched, preventing accidental data leaks when components are reused.
-3. **Organized Structure**: Create folders for different data types:
+Let's trace what happens when the JavaScript engine reads your React code:
 
-   ```bash
-   app/data/
-   ├── user/
-   │   ├── require-user.ts
-   │   ├── get-user.ts
-   │   └── get-all-users.ts
-   └── todo/
-       ├── get-todos.ts
-       ├── get-todo.ts
-       └── get-admin-todos.ts
-   ```
+1. JS Engine encounters component → Component instance created
+2. Render Phase begins → Constructor called, render method executed
+3. JSX converted → Virtual DOM objects created (still just JavaScript!)
+4. Reconciliation → React compares old vs new Virtual DOM trees
+5. Commit Phase begins → Real DOM elements created/updated
+6. Browser rendering → Visual changes appear on screen
 
-#### Performance Optimization: React Cache
+> **Important:** No HTML/CSS is actually rendered during the Render Phase. Only JavaScript objects are created!
 
-Notice the `cache()` function wrapping our `requireUser` function.
-This is crucial for performance.
+### From Virtual to Real
 
-Imagine a dashboard that needs multiple data sources:
+During the Commit Phase, React transforms Virtual DOM into Real DOM:
 
-- Get subscribers
-- Get total customers
-- Get revenue for last 30 days
-- Get recent orders
-- And 6 more data points
+```tsx
+// Virtual DOM object
+{ type: 'div', props: { children: 'Hello' } }
 
-Without caching, `requireUser()` would run 10 times for a single page render. With React's `cache()` function, it runs once and caches the result for that render pass.
-
-The cache is scoped to a single server-side render and doesn't persist between page navigations, making it perfect for this use case.
-
-#### Security Enhancement: Server-Only
-
-Add the `server-only` package to prevent accidental client-side usage:
-
-```typescript
-import 'server-only';
-
-// This import ensures the function only runs on the server
-// and throws a build-time error if imported in client components
+// Becomes Real DOM
+const div = document.createElement('div');
+div.textContent = 'Hello';
+document.body.appendChild(div);
 ```
 
-This is different from the `'use server'` directive:
+## Initial Mount vs Updates
 
-- `'use server'`: Creates server actions callable from both server and client
-- `'server-only'`: Ensures code only executes on the server, throws errors otherwise
+This is where React's efficiency truly shines. The lifecycle behaves differently for initial mounting versus subsequent updates.
 
-### Summary
+### Initial Mount: The Complete Journey
 
-1. **Use Server Components** for data fetching to get proper GET requests and enable parallelism
-2. **Implement a Data Access Layer** to centralize data logic and security checks
-3. **Verify Sessions at the Data Layer** not just at page level to prevent security vulnerabilities
-4. **Use React's cache() Function** to optimize repeated authentication checks
-5. **Add server-only Imports** to prevent accidental client-side usage
-6. **Use Suspense Boundaries** for streaming and better user experience
+When a component is first rendered:
 
-Thanks for reading ! Follow me on x its [@ramxcodes](https://x.com/ramxcodes)
+```tsx
+class DataComponent extends React.Component {
+  constructor() {
+    super();
+    this.state = { data: null, loading: true };
+    console.log('1. 🔧 Constructor - Initial setup');
+  }
+
+  render() {
+    console.log('2. 🎨 Render - Creating Virtual DOM');
+    return (
+      <div>
+        {this.state.loading ? (
+          <div>Loading...</div>
+        ) : (
+          <div>Data: {JSON.stringify(this.state.data)}</div>
+        )}
+      </div>
+    );
+  }
+
+  componentDidMount() {
+    console.log('3. 🚀 componentDidMount - DOM is ready!');
+
+    fetch('/api/users')
+      .then(response => response.json())
+      .then(data => {
+        console.log('📡 API response received, triggering update...');
+        this.setState({ data, loading: false });
+      });
+  }
+}
+```
+
+### Updates: The Optimized Path
+
+After `setState` is called, React enters an optimized update cycle — no constructor, no full recreation:
+
+```tsx
+componentDidUpdate(prevProps, prevState) {
+  console.log('4. 🔄 componentDidUpdate - Update complete!');
+
+  if (prevState.loading && !this.state.loading) {
+    console.log('✅ Data loading completed!');
+  }
+}
+```
+
+### Key Differences: Mount vs Update
+
+| Aspect | Initial Mount | Update |
+|---|---|---|
+| Constructor | ✅ Called | ❌ Skipped |
+| Render | ✅ Called | ✅ Called |
+| DOM Creation | ✅ Creates new elements | ❌ Updates existing |
+| Lifecycle Hook | `componentDidMount` | `componentDidUpdate` |
+| Reconciliation | Not needed | ✅ Compares Virtual DOM trees |
+| Performance | Slower (full creation) | Faster (targeted updates) |
+
+### The Update Reconciliation Process
+
+When `setState` triggers an update:
+
+1. New Virtual DOM created with updated state
+2. Reconciliation algorithm compares old vs new trees
+3. Minimal changes calculated (diffing algorithm)
+4. Only changed elements updated in Real DOM
+
+```tsx
+// Before update (loading state)
+<div>Loading...</div>
+
+// After setState (data loaded)
+<div>Data: {"name": "John", "age": 30}</div>
+
+// React only updates the text content — the div element is reused!
+```
+
+## Practical Examples
+
+### Example 1: Data Fetching Component
+
+```tsx
+class UserProfile extends React.Component {
+  constructor(props) {
+    super(props);
+    this.state = {
+      user: null,
+      loading: true,
+      error: null
+    };
+  }
+
+  async componentDidMount() {
+    try {
+      const response = await fetch(`/api/users/${this.props.userId}`);
+      const user = await response.json();
+      this.setState({ user, loading: false });
+    } catch (error) {
+      this.setState({ error: error.message, loading: false });
+    }
+  }
+
+  componentDidUpdate(prevProps) {
+    if (prevProps.userId !== this.props.userId) {
+      this.setState({ loading: true });
+      this.fetchUserData();
+    }
+  }
+
+  render() {
+    const { user, loading, error } = this.state;
+
+    if (loading) return <div>Loading user profile...</div>;
+    if (error) return <div>Error: {error}</div>;
+
+    return (
+      <div className="user-profile">
+        <img src={user.avatar} alt={user.name} />
+        <h1>{user.name}</h1>
+        <p>{user.email}</p>
+      </div>
+    );
+  }
+}
+```
+
+### Example 2: Parent-Child Communication
+
+```tsx
+class TodoApp extends React.Component {
+  componentDidMount() {
+    // All child components (TodoList, AddTodo) are now mounted
+    console.log('TodoApp mounted - children are ready');
+    this.loadTodos();
+  }
+
+  render() {
+    return (
+      <div>
+        <AddTodo onAdd={this.handleAddTodo} />
+        <TodoList todos={this.state.todos} onToggle={this.handleToggleTodo} />
+      </div>
+    );
+  }
+}
+
+class TodoList extends React.Component {
+  componentDidMount() {
+    console.log('TodoList mounted first'); // Runs before parent's componentDidMount
+  }
+
+  render() {
+    return (
+      <ul>
+        {this.props.todos.map(todo => (
+          <TodoItem key={todo.id} todo={todo} />
+        ))}
+      </ul>
+    );
+  }
+}
+```
+
+## Performance Implications
+
+Understanding React's lifecycle phases helps you write more performant applications.
+
+### Minimize Render Phase Work
+
+```tsx
+// ❌ Expensive computation in render
+render() {
+  const expensiveValue = this.calculateExpensiveValue(); // Bad!
+  return <div>{expensiveValue}</div>;
+}
+
+// ✅ Memoize expensive computations
+constructor() {
+  super();
+  this.expensiveValue = this.calculateExpensiveValue();
+}
+```
+
+### Batch State Updates
+
+```tsx
+// ❌ Multiple setState calls — triggers 3 re-renders
+handleMultipleUpdates = () => {
+  this.setState({ count: this.state.count + 1 });
+  this.setState({ name: 'Updated' });
+  this.setState({ active: true });
+}
+
+// ✅ Single setState call — triggers 1 re-render
+handleMultipleUpdates = () => {
+  this.setState({
+    count: this.state.count + 1,
+    name: 'Updated',
+    active: true
+  });
+}
+```
+
+### Optimize `componentDidUpdate`
+
+```tsx
+componentDidUpdate(prevProps, prevState) {
+  // ❌ Unconditional side effects — infinite loop risk!
+  this.fetchData();
+
+  // ✅ Conditional side effects
+  if (prevProps.userId !== this.props.userId) {
+    this.fetchData();
+  }
+}
+```
+
+### React DevTools Profiler
+
+Use React DevTools Profiler to visualize the render and commit phases:
+
+- **Render phase duration** — Time spent in component logic
+- **Commit phase duration** — Time spent updating DOM
+- **Component update reasons** — Why components re-rendered
+
+## Summary
+
+1. **Render Phase is pure and interruptible** — no side effects, React can pause or restart it
+2. **Commit Phase handles DOM updates** — synchronous, cannot be interrupted
+3. **Batching optimizes component tree updates** — commit phase runs bottom-up for safety
+4. **Virtual DOM enables efficient reconciliation** — only diffs what actually changed
+5. **Updates skip the constructor** — only re-renders what changed, making them much faster
+
+Thanks for reading! Follow me on X at [@ramxcodes](https://x.com/ramxcodes)
