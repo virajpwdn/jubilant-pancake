@@ -1,0 +1,58 @@
+---
+title: 'Why I Added Redis to My Auth Flow (And What I Learned)'
+description: 'A backend lesson on reducing repeated database lookups using in-memory caching with Redis — learned the hard way while building an authentication module.'
+image: '/blog/redis-auth-caching.jpg'
+tags: ['backend', 'development', 'redis']
+date: '2025-07-12'
+isPublished: true
+---
+
+## The Pattern I Couldn't Unsee
+
+When I started doing backend development, I was building the authentication module for a project. The flow was straightforward: the frontend sent a JWT token, the backend verified and decoded it, extracted the user id, and then queried the database to confirm the user existed.
+
+I ended up building three auth APIs: one for signup, one for login, and one for Google OAuth (login/signup). This post is about the login side — and more specifically, what I learned after it "worked."
+
+A couple of days in, I noticed a pattern: every time I hit a protected API, the backend repeated the same routine.
+
+```
+JWT comes in → verify/decode → extract user id → query DB → respond
+```
+
+And it wasn't a one-time thing. It happened on **every request** that required authentication.
+
+That's when I paused and asked myself: _can this be faster?_ Instead of going to the database every time and searching through thousands of users, can I keep the frequently needed data somewhere quicker?
+
+## My First (Bad) Instinct
+
+Coming from a frontend background, my first instinct was almost funny in hindsight: _"What if I store the user in localStorage?"_
+
+Then it clicked — there's no `localStorage` on a server. That's a browser feature, not something your backend can rely on.
+
+## Discovering In-Memory Caching
+
+While exploring better options, I came across **Redis** and the idea of in-memory caching. The promise was simple: keep hot data in RAM, fetch it in microseconds, and avoid unnecessary database queries.
+
+I dug into the docs and implemented it step by step. Here's the updated flow:
+
+```
+JWT comes in → verify/decode → extract user id → check Redis first
+    ↓ (cache hit)                ↓ (cache miss)
+return cached user        query DB → store in Redis with TTL → return user
+```
+
+On login (and on subsequent authenticated requests), after verifying and decoding the JWT, I'd take the user id and check Redis first. If Redis had the user (or the minimal data I needed), I could skip the database call entirely. If Redis didn't have it, only then I'd query the main database — and immediately store the result in Redis with a TTL, so future requests could be served faster.
+
+## The Difference It Made
+
+After doing this, the difference was clear. The system stopped hitting the database for the same repeated lookups, and overall latency dropped noticeably — in my case, roughly half for those authenticated paths.
+
+But the bigger lesson wasn't just _"Redis is fast."_
+
+It was understanding **why the bottleneck existed** in the first place, and how caching fits into backend thinking: reduce repeated expensive operations, and use the database for what it should do best — not for the same lookups again and again.
+
+---
+
+If you're building auth flows and haven't thought about caching yet, that repeated DB lookup is a good place to start. It's one of those changes that feels small but compounds across every authenticated request in your system.
+
+Thanks for reading! Follow me on X at [@viraj](https://x.com/async_awaait)

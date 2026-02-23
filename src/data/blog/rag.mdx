@@ -1,0 +1,57 @@
+---
+title: 'What is RAG? Retrieval-Augmented Generation Explained'
+description: 'A beginner-friendly guide to understanding RAG — how it works, its two core phases, and why it makes AI responses more accurate and reliable.'
+image: '/blog/what-is-rag.jpg'
+tags: ['ai', 'development', 'rag']
+date: '2025-07-12'
+isPublished: true
+---
+
+## What is RAG?
+
+RAG stands for **Retrieval-Augmented Generation**. It's an AI architecture that combines information retrieval systems with generative AI models to produce more accurate, up-to-date, and contextually relevant responses.
+
+> **Simple Analogy:** Think of RAG like a student taking an open-book exam. Instead of memorizing everything (like traditional AI), the student can reference textbooks (external knowledge) to give accurate answers. This reduces the chance of making up incorrect information.
+
+## The Two Core Phases of RAG
+
+### Phase 1: Ingestion / Indexing (The Knowledge Storage Phase)
+
+This is where we prepare and store data in a vector database for quick retrieval.
+
+**The Process:**
+
+1. **Document Upload** — You have a PDF (could be 100, 1000, or 10,000 pages)
+2. **Chunking** — Breaking the document into smaller, digestible pieces
+3. **Vector Embeddings** — Converting these chunks into mathematical representations
+4. **Storage** — Saving these embeddings in a vector database
+
+**Why Chunking?**
+
+- LLM APIs have rate limits and token constraints
+- Processing everything at once would overload servers
+- Smaller chunks enable precise retrieval
+
+> **Analogy:** Imagine organizing a massive library. Instead of memorizing every book, you create an index card system where each card contains a summary and location. When someone asks a question, you quickly find the relevant cards instead of reading every book.
+
+![RAG Pipeline](/blog/rag.jpeg)
+
+### Phase 2: Retrieval / Generation
+
+In the retrieval phase, the process unfolds in several key steps:
+
+1. **User Query** — The user submits a prompt or question through the interface
+2. **Query Embedding** — The prompt is converted into a vector embedding using the same embedding model used during the indexing phase (this consistency is crucial for accurate matching)
+3. **Similarity Search** — The query embedding is compared against all stored embeddings in the vector database. The database uses similarity metrics (like cosine similarity or Euclidean distance) to find the most relevant chunks
+4. **Context Retrieval** — The vector database returns the top-k most similar chunks (typically 3–5 chunks, though this is configurable based on your needs)
+5. **Prompt Augmentation** — The retrieved context is combined with the user's original query to create an enriched prompt. This gives the LLM relevant background information
+6. **LLM Generation** — The augmented prompt is sent to an LLM (ChatGPT, Claude, Gemini, Llama, or any other model). The LLM generates a response grounded in the retrieved context
+7. **Response Delivery** — The final output is returned to the user
+
+**The Result:** Users receive responses that are contextually accurate, grounded in your specific data source, and significantly less prone to hallucinations.
+
+---
+
+In the upcoming article I'll explain how a production-level RAG works — until then, see ya :)
+
+Thanks for reading! Follow me on X at [@viraj](https://x.com/async_awaait)
