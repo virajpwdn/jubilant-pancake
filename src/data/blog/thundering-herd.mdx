@@ -103,27 +103,26 @@ In thundering herd it overwhelms the server and crashes.
 
 #### Techniques to Prevent the Thundering Herd Problem
 
-1. Request Coalescing
+1. **Request Coalescing**
    Popularised by Facebook, request coalescing is a technique where multiple identical requests arriving at the server are grouped into a single upstream request. Instead of forwarding all 1000 requests to the backend, only one request is sent while the rest wait in a queue. Once the response is received, it is fanned out and shared with all waiting clients — significantly reducing the load on downstream services.
 
-2. Mutex (Distributed Lock)
+2. **Mutex (Distributed Lock)**
    A mutex ensures that only one thread or process can access a critical section at a time. Note that this lock is assigned to a thread, not to an HTTP request directly.
    When the first request arrives and the cache is empty, it acquires a temporary lock and proceeds to fetch data from the database. All subsequent threads recognise the lock and wait rather than hammering the database simultaneously. Once the data is fetched and the lock is released, the waiting threads are served.
 
-3. Cache Locking (Cache Stampede Prevention)
+3. **Cache Locking (Cache Stampede Prevention)**
    Cache locking is closely related to the mutex concept but applied specifically at the cache layer. When a cache entry expires, instead of allowing all requests to simultaneously bypass the cache and hit the database, only one request is granted a lock to fetch fresh data from the database. All other requests wait in the queue. Once the cache is rebuilt, the lock is released and all queued requests are served directly from the cache — preventing a cache stampede.
 
-4. Staggered Expiry (TTL Jitter)
+4. **Staggered Expiry (TTL Jitter)**
    Also known as Jitter Delay, this technique assigns slightly randomised expiration times to cache entries rather than setting a uniform TTL across all of them. Instead of every cache entry expiring at the exact same timestamp, they expire gradually across a time window — spreading the database load evenly and eliminating the thundering herd at its root cause.
    For example, instead of all entries expiring at exactly T + 30 days, each entry is assigned a TTL of 30 days ± random(0, 5 minutes).
 
-5. Exponential Backoff
+5. **Exponential Backoff**
    When a client fails to connect to a backend service or database, naive retry logic will immediately resend the request — which often makes the situation significantly worse. Exponential backoff introduces progressively increasing wait times between each retry attempt:
    1s → 2s → 4s → 8s → 16s ...
    This gives the system breathing room to recover rather than being buried under a relentless wave of retries. Most production systems also pair this with a maximum retry limit and jitter on the backoff intervals to avoid multiple clients retrying in perfect synchrony — which would itself create a mini thundering herd.
 
-6. Rate Limiting
-   Rate limiting restricts the number of requests a client or service can make within a given time window. Once the threshold is exceeded, further requests are either queued or rejected with an appropriate error response (HTTP 429 Too Many Requests). This acts as a traffic governor, ensuring no single client or event can overwhelm the system.
+6. **Rate Limiting** restricts the number of requests a client or service can make within a given time window. Once the threshold is exceeded, further requests are either queued or rejected with an appropriate error response (HTTP 429 Too Many Requests). This acts as a traffic governor, ensuring no single client or event can overwhelm the system.
    Common rate limiting algorithms include:
    
    **Leaky Bucket** — requests are processed at a constant rate, excess requests overflow
