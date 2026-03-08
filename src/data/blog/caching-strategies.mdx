@@ -1,0 +1,184 @@
+---
+title: 'Cache Strategies in Distributed Systems'
+description: 'A fixed TTL that works fine at small scale can silently destroy your system at scale. Start with TTL jitter, understand the other strategies, and choose based on your traffic patterns and tolerance for complexity.'
+image: 'https://res.cloudinary.com/dqka1mg1a/image/upload/v1772993805/Instagram_post_-_26_avgtpx.jpg'
+tags: ['backend', 'development', 'systemdesign', caching]
+date: '2026-03-08'
+isPublished: true
+---
+
+# The Bug That Took Us Two Days to Find: Cache Stampede in Production
+
+At my previous company, users were getting **silently logged out**.
+
+Support tickets were piling up.
+
+The frontend team believed it was a backend issue.
+The backend team suspected something was wrong on the frontend.
+
+For two days, the teams kept investigating different parts of the system.
+
+Eventually, we discovered the real issue.
+
+**All our Redis TTLs were expiring at the same time.**
+
+Because of time constraints, we needed an immediate solution. We decided to add **jitter** to the TTL values, so that cache entries would expire at different times instead of simultaneously.
+
+Later, while studying system design in more depth, I realized this issue has a well-known name:
+
+**Cache Stampede** (also known as the **Thundering Herd Problem**).
+
+It turns out this is a very common issue in **distributed systems**, and many large-scale companies have faced it at some point.
+
+---
+
+## Why Basic TTL Is Not Enough
+
+A basic caching strategy might look something like this:
+
+```javascript
+cache -> user_profile:123
+TTL -> 60 seconds
+```
+
+After 60 seconds, the cache entry expires. The next request fetches fresh data from the database and rebuilds the cache.
+
+For **small applications with low traffic**, this approach works perfectly fine.
+
+However, in **large-scale systems**, this simple strategy can create serious problems.
+
+---
+
+## The Biggest Problem: Cache Stampede (Thundering Herd)
+
+Imagine your application receives **10,000+ requests** for a popular endpoint.
+
+If the cache expires at the same moment:
+
+- The cache entry disappears
+- All requests **miss the cache**
+- Every request **directly queries the database**
+
+```javascript
+Cache expires
+→ 10,000 cache misses
+→ 10,000 database queries
+```
+
+The database suddenly receives a **massive spike in traffic**.
+
+This can lead to:
+
+- <b>Database overload</b>
+- <b>Increased latency</b>
+- <b>Request timeouts</b>
+- <b>Cascading system failures</b>
+
+This phenomenon is known as the **Cache Stampede** or **Thundering Herd** problem.
+
+The root cause is **synchronized cache expiration**.
+
+---
+
+## Why Synchronized Expiration Is Dangerous
+
+Basic TTL means every key expires at **exactly the same time**.
+
+If many requests depend on the same cache entry, they will all attempt to **rebuild the cache simultaneously**.
+
+This creates **traffic spikes** and unnecessary pressure on the database.
+
+To avoid this problem, engineers use different strategies. Each approach comes with its own **trade-offs**.
+
+---
+
+## Strategies to Prevent Cache Stampede
+
+### 1. TTL Jitter (The Approach We Used in Production)
+
+Instead of assigning the same TTL to every cache entry, we introduce **randomness**.
+
+```javascript
+TTL = 60 seconds + Math.floor(Math.random() * 60)
+```
+
+Now cache entries expire at **slightly different times**, which spreads the load over time.
+
+Instead of thousands of requests hitting the database simultaneously, the traffic is **distributed more evenly**.
+
+This is one of the **simplest and most effective** solutions.
+
+---
+
+### 2. Mutex Locking
+
+In this approach, when the cache expires and multiple requests arrive:
+
+- <b>One request acquires a lock</b>
+- <b>Other requests wait</b>
+
+```javascript
+Request A -> acquires lock
+Request B -> blocked
+Request C -> blocked
+```
+
+Request A then:
+
+1. Fetches data from the database
+2. Rebuilds the cache
+3. Releases the lock
+
+After that, the blocked requests read the data **directly from the cache**.
+
+This ensures **only one database query** happens per cache miss.
+
+---
+
+### 3. Cache Coalescing (Request Coalescing)
+
+Cache coalescing takes a slightly different approach.
+
+Instead of blocking requests with locks, **identical requests are grouped together**.
+
+One request fetches data from the database, and the **response is shared** with all waiting requests.
+
+```javascript
+100 requests
+→ 1 database query
+→ response shared with all
+```
+
+This reduces **duplicate backend calls** and improves overall efficiency.
+
+---
+
+### 4. Probability-Based Early Re-computation
+
+Another technique is **refreshing the cache before it expires** using a probability function.
+
+Instead of waiting for the TTL to reach zero, some requests will refresh the cache earlier.
+
+```javascript
+if (probability(TTL) < threshold) {
+  refreshCache();
+}
+```
+
+This spreads cache refresh operations across time and **avoids sudden spikes**.
+
+**Trade-off**: The cache might be recomputed **earlier than necessary**, which increases compute usage.
+
+---
+
+## Key Takeaway
+
+Caching seems simple:
+
+```javascript
+set(key, value, TTL);
+```
+
+But in **high-traffic systems**, expiration strategies become **extremely important**.
+
+A fixed TTL that works fine at small scale can silently destroy your system at scale. Start with **TTL jitter**, understand the other strategies, and choose based on your traffic patterns and tolerance for complexity.
