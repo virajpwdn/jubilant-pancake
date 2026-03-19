@@ -127,7 +127,7 @@ export const heroConfig = {
   // Description Configuration
   description: {
     template:
-      'Shipping <b>production-grade web systems end-to-end</b> — <b>React/Next.js</b> frontends, <b>Node.js</b> backend, <b>containerized deployments</b>, and <b>instrumented infrastructure</b>. I own systems from <b>architecture through CI/CD and monitoring</b>, and build AI features including <b>RAG pipelines</b> and <b>multi-agent workflows</b>. Recently cut <b>search latency by 50%</b> using <b>Elasticsearch</b> and <b>Redis caching</b>.',
+      'I write something that machines understand. I love engineering, always learning something new, polymath.',
   },
 
   // Buttons Configuration
@@ -150,14 +150,14 @@ export const heroConfig = {
 // Social Links Configuration
 export const socialLinks = [
   {
-    name: 'X',
-    href: 'https://x.com/async_awaait',
-    icon: <X />,
-  },
-  {
     name: 'LinkedIn',
     href: 'https://www.linkedin.com/in/viraj-patwardhan/',
     icon: <LinkedIn />,
+  },
+  {
+    name: 'X',
+    href: 'https://x.com/async_awaait',
+    icon: <X />,
   },
   {
     name: 'Github',
@@ -170,3 +170,5 @@ export const socialLinks = [
     icon: <Mail />,
   },
 ];
+
+// Shipping <b>production-grade web systems end-to-end</b> — <b>React/Next.js</b> frontends, <b>Node.js</b> backend, <b>containerized deployments</b>, and <b>instrumented infrastructure</b>. I own systems from <b>architecture through CI/CD and monitoring</b>, and build AI features including <b>RAG pipelines</b> and <b>multi-agent workflows</b>. Recently cut <b>search latency by 50%</b> using <b>Elasticsearch</b> and <b>Redis caching</b>.
