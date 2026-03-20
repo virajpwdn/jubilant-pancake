@@ -265,7 +265,7 @@ export const experiences: Experience[] = [
       'Later transitioned to MERN stack development, building custom full-stack applications with well-structured REST APIs.',
     ],
     startDate: 'Jan 2021',
-    endDate: 'Dec 2022',
+    endDate: 'Dec 2021',
     technologies: [
       {
         name: 'WordPress',
