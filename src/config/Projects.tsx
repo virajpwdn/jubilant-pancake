@@ -37,36 +37,38 @@ import { GithubLogoIcon, OpenAiLogoIcon } from '@phosphor-icons/react/dist/ssr';
 
 export const projects: Project[] = [
   {
-    title: 'NutriGuard AI - Multi-Agentic Workflow',
-    description: 'AI that reads your food labels and helps you eat smarter.',
-    image: '/project/best/nutri.png',
+    title: 'StackWave',
+    description:
+      'A real-time collaborative platform for developers to ask questions, share knowledge, and refactor code with AI assistance.',
+    image: '/project/best/stackwave.png',
     video:
-      'https://res.cloudinary.com/dqka1mg1a/video/upload/v1769196203/ng_ozz8kx.mp4',
-    link: '#',
+      'https://res.cloudinary.com/dqka1mg1a/video/upload/v1769196207/stackwave_ssgyqi.mp4',
+    link: 'https://stackwave.virajpatwardhan.in',
     technologies: [
-      { name: 'Next.js', icon: <NextJs key="nextjs" /> },
-      { name: 'TypeScript', icon: <TypeScript key="typescript" /> },
-      { name: 'MongoDB', icon: <MongoDB key="mongo" /> },
+      { name: 'React', icon: <ReactIcon key="reactjs" /> },
       { name: 'Node Js', icon: <NodeJs key="nodejs" /> },
-      { name: 'Express', icon: <ExpressJs key="express" /> },
-      { name: 'Tailwind CSS', icon: <TailwindCss key="tailwindcss" /> },
-      { name: 'Socket.io', icon: <SocketIo key="socketio" /> },
-      { name: 'Postman', icon: <Postman key="postman" /> },
       {
-        name: 'LangGraph & LangChain',
-        icon: <LangGraphIcon key="langgraph" />,
+        name: 'Open AI',
+        icon: <OpenAiLogoIcon key="openai" height={24} width={24} />,
       },
-      { name: 'Kestra', icon: <KestraLogo key="kestra" /> },
-      { name: 'Docker', icon: <Docker key="docker" /> },
+      { name: 'Javascript', icon: <JavaScript key="javascript" /> },
+      // { name: 'React', icon: <ReactIcon key="react" /> },
       { name: 'AWS', icon: <AWS key="aws" /> },
-      // { name: 'LangChain', icon: <LangChain key="langchain" /> },
-      { name: 'Kubernetes', icon: <Kubernetes key="kubernetes" /> },
-      { name: 'Mem0', icon: <Mem0Logo key="memory" /> },
+      { name: 'MongoDB', icon: <MongoDB key="mongodb" /> },
+      { name: 'Tailwind CSS', icon: <TailwindCss key="tailwindcss" /> },
+      { name: 'Github', icon: <GithubLogoIcon size={22} key="github" /> },
+
+      { name: 'shadcn/ui', icon: <Shadcn key="shadcn" /> },
+      { name: 'MDX', icon: <MDXIcon key="mdx" /> },
+      { name: 'Docker', icon: <Docker key="docker" /> },
+      { name: 'Redis', icon: <RedisIcon key="redis" width={22} height={28} /> },
+      { name: 'Socket IO', icon: <SocketIo key="socketio" /> },
     ],
-    // live: 'https://www.pasandidaurat.com/',
+    github: 'https://github.com/virajpwdn/stackwave',
+    live: 'https://stackwave.virajpatwardhan.in',
     details: true,
-    projectDetailsPageSlug: '/projects/nutri-guard-ai',
-    isWorking: false, // Currently in development
+    projectDetailsPageSlug: '/projects/stackwave',
+    isWorking: true,
   },
   {
     title: 'DevTinder',
@@ -108,6 +110,38 @@ export const projects: Project[] = [
     isWorking: true,
   },
   {
+    title: 'NutriGuard AI - Multi-Agentic Workflow',
+    description: 'AI that reads your food labels and helps you eat smarter.',
+    image: '/project/best/nutri.png',
+    video:
+      'https://res.cloudinary.com/dqka1mg1a/video/upload/v1769196203/ng_ozz8kx.mp4',
+    link: '#',
+    technologies: [
+      { name: 'Next.js', icon: <NextJs key="nextjs" /> },
+      { name: 'TypeScript', icon: <TypeScript key="typescript" /> },
+      { name: 'MongoDB', icon: <MongoDB key="mongo" /> },
+      { name: 'Node Js', icon: <NodeJs key="nodejs" /> },
+      { name: 'Express', icon: <ExpressJs key="express" /> },
+      { name: 'Tailwind CSS', icon: <TailwindCss key="tailwindcss" /> },
+      { name: 'Socket.io', icon: <SocketIo key="socketio" /> },
+      { name: 'Postman', icon: <Postman key="postman" /> },
+      {
+        name: 'LangGraph & LangChain',
+        icon: <LangGraphIcon key="langgraph" />,
+      },
+      { name: 'Kestra', icon: <KestraLogo key="kestra" /> },
+      { name: 'Docker', icon: <Docker key="docker" /> },
+      { name: 'AWS', icon: <AWS key="aws" /> },
+      // { name: 'LangChain', icon: <LangChain key="langchain" /> },
+      { name: 'Kubernetes', icon: <Kubernetes key="kubernetes" /> },
+      { name: 'Mem0', icon: <Mem0Logo key="memory" /> },
+    ],
+    // live: 'https://www.pasandidaurat.com/',
+    details: true,
+    projectDetailsPageSlug: '/projects/nutri-guard-ai',
+    isWorking: false, // Currently in development
+  },
+  {
     title: 'CodeForge AI',
     description:
       'Transform your ideas into beautiful web applications instantly. Generate Code, deploy automatically and push directly to github all with single prompt',
@@ -135,40 +169,6 @@ export const projects: Project[] = [
     details: true,
     projectDetailsPageSlug: '/projects/code-forge',
     isWorking: false, // Currently in development
-  },
-  {
-    title: 'StackWave',
-    description:
-      'A real-time collaborative platform for developers to ask questions, share knowledge, and refactor code with AI assistance.',
-    image: '/project/best/stackwave.png',
-    video:
-      'https://res.cloudinary.com/dqka1mg1a/video/upload/v1769196207/stackwave_ssgyqi.mp4',
-    link: 'https://stackwave.virajpatwardhan.in',
-    technologies: [
-      { name: 'React', icon: <ReactIcon key="reactjs" /> },
-      { name: 'Node Js', icon: <NodeJs key="nodejs" /> },
-      {
-        name: 'Open AI',
-        icon: <OpenAiLogoIcon key="openai" height={24} width={24} />,
-      },
-      { name: 'Javascript', icon: <JavaScript key="javascript" /> },
-      // { name: 'React', icon: <ReactIcon key="react" /> },
-      { name: 'AWS', icon: <AWS key="aws" /> },
-      { name: 'MongoDB', icon: <MongoDB key="mongodb" /> },
-      { name: 'Tailwind CSS', icon: <TailwindCss key="tailwindcss" /> },
-      { name: 'Github', icon: <GithubLogoIcon size={22} key="github" /> },
-
-      { name: 'shadcn/ui', icon: <Shadcn key="shadcn" /> },
-      { name: 'MDX', icon: <MDXIcon key="mdx" /> },
-      { name: 'Docker', icon: <Docker key="docker" /> },
-      { name: 'Redis', icon: <RedisIcon key="redis" width={22} height={28} /> },
-      { name: 'Socket IO', icon: <SocketIo key="socketio" /> },
-    ],
-    github: 'https://github.com/virajpwdn/stackwave',
-    live: 'https://stackwave.virajpatwardhan.in',
-    details: true,
-    projectDetailsPageSlug: '/projects/stackwave',
-    isWorking: true,
   },
   {
     title: 'PersonaAI',
