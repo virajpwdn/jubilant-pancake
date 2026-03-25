@@ -173,7 +173,7 @@ export const experiences: Experience[] = [
   {
     isCurrent: false,
     company: 'Quetraware Technologies',
-    position: 'Co-founder, Full-Stack Developer',
+    position: 'Full-Stack Developer',
     location: 'Navi-Mumbai, India (Remote)',
     image: '/company/qt.jpeg',
     description: [
