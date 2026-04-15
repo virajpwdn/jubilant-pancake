@@ -58,10 +58,11 @@ export const experiences: Experience[] = [
     location: 'Banglore (Remote)',
     image: '/company/lucresl.png',
     description: [
+      'Built an <b>AI-powered multi-agent system</b> using multiple LLMs, orchestrated via <b>LangGraph</b>, with a <b>persistent memory layer</b> (Mem0) to enable context- aware interactions, integrated Langfuse for <b>observability and monitoring</b>',
+      'Designed and deployed a scalable <b>Retrieval-Augmented Generation (RAG)</b> pipeline serving 30K+ users, incorporating guardrails for response validation, safety, and hallucination reduction.',
       'Designed and implemented a <b>scalable multi-tenant architecture</b>, leading backend system design and delivering <b>ahead of schedule</b>.',
-      'Reduced average production API response time by <b>~50%</b> through <b>Redis-based FIFO caching</b> and request-layer optimizations.',
+      'Reduced average production API response time by <b>~50%</b> through <b>Redis-based caching</b> and request-layer optimizations.',
       'Resolved a <b>critical production outage impacting 80% of APIs</b>, coordinating cross-team debugging and restoring full functionality within <b>one week</b>.',
-      'Led development of an <b>autonomous multi-agent workflow</b> using <b>LangGraph</b> and <b>LangChain</b>, integrating AI-driven automation into core product features.',
       'Architected and deployed an <b>Elasticsearch-powered search system</b>, significantly reducing query latency.',
       'Managed production deployments using <b>Docker</b>, <b>Nginx</b>, and <b>Kubernetes</b>, ensuring reliable release cycles and system stability.',
       'Led a <b>platform-wide refactor</b>, improving code maintainability, scalability, and overall development velocity.',
